@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import snowy from '../../assets/icon/snowy_floor.svg';
 import background from '../../assets/icon/background.svg';
 
 export const Container = styled.div`
@@ -53,3 +52,51 @@ export const SnowyFloor = styled.img`
   position: absolute;
   border: 1px solid black;
 `;
+
+// Nickname page
+
+export const ImageContainer = styled.div`
+  display: flex-end;
+  flex-direction: row;
+  margin-top: 105px;
+`;
+
+
+export const Info = styled.div`
+  font-size: 25px;
+  margin-top: 30px;
+`;
+
+export const CheckBox = styled.div`
+  margin-top: 30px;
+  flex-direction: row;
+`;
+
+export const InputBox = styled.input`
+  height: 50px;
+  width: 220px;
+  padding: 10px;
+`;
+
+export const CheckButton = styled.button`
+  border-radius: 100px;
+  margin-left: 13px;
+  width: 107px;
+  height: 43px;
+  background-color: #2D9985;
+  box-shadow: -5px -5px 10px 0px #FFF, 5px 5px 10px 0px #BEBEBE;
+  color: white;
+`;
+
+export const SubmitBtn = styled.button`
+  background-color: #992D2D;
+  margin-top: 50px;
+  border-radius: 100px;
+  width: 200px;
+  height: 45px;
+  font-size: 17px;
+  color: white;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  `;

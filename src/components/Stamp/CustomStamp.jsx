@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import frame from '../../assets/icon/stamp_frame.svg';
 import question from '../../assets/icon/no_image.svg';
-import giftStamp from '../../assets/icon/gift_icon.svg'; // api연결 후 삼항연산자 처리
 
 const CustomStamp = ({userId}) => {
   return(
