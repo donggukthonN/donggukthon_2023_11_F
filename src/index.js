@@ -1,13 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import StartPage from "./pages/Start/StartPage";
+import SealDetailPage from "./pages/SealDetail/SealDetailPage";
+import SealListPage from "./pages/SealList/SealListPage";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<StartPage />} />
+        <Route path="/sealList" element={<SealListPage />} />
+        <Route path="/sealDetail" element={<SealDetailPage />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
