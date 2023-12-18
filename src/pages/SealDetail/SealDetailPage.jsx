@@ -4,6 +4,8 @@ import {
   StyledSealDetailContentWrapper,
   StyledSealDetailHeaderContainer,
   StyledSealDetailHeaderIcon,
+  StyledSealDetailHeaderTitle,
+  StyledSealDetailImgWrapper,
   StyledSealDetailInnerContainer,
   StyledSealDetailLikeWrapper,
   StyledSealDetailTitleContainer,
@@ -17,11 +19,11 @@ const SealDetailPage = () => {
       <StyledSealDetailInnerContainer>
         <StyledSealDetailHeaderContainer>
           <StyledSealDetailHeaderIcon />
-          <div>씰 게시판</div>
+          <StyledSealDetailHeaderTitle>씰 게시판</StyledSealDetailHeaderTitle>
         </StyledSealDetailHeaderContainer>
-        <div>
+        <StyledSealDetailImgWrapper>
           <img src={SealExampleImg} alt={"씰 사진"} width={"100%"} />
-        </div>
+        </StyledSealDetailImgWrapper>
         <StyledSealDetailTitleContainer>
           <div>씰 이름 : 크리스마스~~~</div>
           <StyledSealDetailLikeWrapper>
