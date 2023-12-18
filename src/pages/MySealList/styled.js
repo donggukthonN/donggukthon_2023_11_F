@@ -44,15 +44,24 @@ export const StyledMySealListMenuLeft = styled.button`
   box-shadow: 1px 2px 1px gray;
   background-color: white;
   font-size: 17px;
+  ${(props) =>
+    props.$selectedMenu === 0
+      ? `color: white;
+  background-color: #992d2d;`
+      : `background-color: white;`};
 `;
 
 export const StyledMySealListMenuRight = styled.button`
   padding: 7px 20px;
   width: 45%;
   border: none;
+  border: 1px solid white;
   border-radius: 0 10px 10px 0;
   box-shadow: 1px 2px 1px gray;
-  color: white;
-  background-color: #992d2d;
+  ${(props) =>
+    props.$selectedMenu === 1
+      ? `color: white;
+  background-color: #992d2d;`
+      : `background-color: white;`};
   font-size: 17px;
 `;
