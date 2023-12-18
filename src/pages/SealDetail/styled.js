@@ -1,9 +1,16 @@
 import styled from "styled-components";
 import { IoIosArrowBack } from "react-icons/io";
+import { CiCalendarDate } from "react-icons/ci";
+import { LiaUserFriendsSolid } from "react-icons/lia";
 
 export const StyledSealDetailContainer = styled.div`
   display: flex;
   justify-content: center;
+  /* background-image: url("./assets/images/background-blur.svg");
+  background-repeat: no-repeat;
+  background-size: cover; */
+  //background-color: #fff7e3;
+  background-color: #fff0e3;
 `;
 export const StyledSealDetailInnerContainer = styled.div`
   display: flex;
@@ -40,6 +47,7 @@ export const StyledSealDetailTitleContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 10px;
 `;
 
 export const StyledSealDetailLikeWrapper = styled.div`
@@ -47,15 +55,39 @@ export const StyledSealDetailLikeWrapper = styled.div`
   align-items: center;
 `;
 
-export const StyledSealDetailContentWrapper = styled.div`
+export const StyledSealDetailContentContainer = styled.div`
   margin: 10px 0px;
-  padding: 10px;
+  padding: 20px;
   border-radius: 5px;
-  background-color: aliceblue;
+  background-color: #992d2d;
+`;
+
+export const StyledSealDetailContentWrapper = styled.div`
+  display: flex;
+  color: white;
+`;
+
+export const StyledSealDetailDateIcon = styled(CiCalendarDate)`
+  padding-right: 5px;
+  width: 20px;
+  height: 20px;
+  color: black;
+`;
+export const StyledSealDetailFriendIcon = styled(LiaUserFriendsSolid)`
+  padding-right: 5px;
+  width: 20px;
+  height: 20px;
+  color: black;
+`;
+
+export const StyledSealDetailContentText = styled.p`
+  padding-bottom: 10px;
+  border-bottom: 2px solid black;
+  color: white;
 `;
 
 export const StyledSealDetailButton = styled.button`
-  margin: 0 auto;
+  margin: 10px auto;
   padding: 5px 0;
   width: 200px;
   border: none;
@@ -63,4 +95,5 @@ export const StyledSealDetailButton = styled.button`
   color: white;
   background-color: #2d9985;
   box-shadow: 1px 2px 1px gray;
+  font-size: 20px;
 `;

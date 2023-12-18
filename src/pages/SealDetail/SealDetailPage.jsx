@@ -1,7 +1,11 @@
 import {
   StyledSealDetailButton,
   StyledSealDetailContainer,
+  StyledSealDetailContentContainer,
+  StyledSealDetailContentText,
   StyledSealDetailContentWrapper,
+  StyledSealDetailDateIcon,
+  StyledSealDetailFriendIcon,
   StyledSealDetailHeaderContainer,
   StyledSealDetailHeaderIcon,
   StyledSealDetailHeaderTitle,
@@ -11,7 +15,7 @@ import {
   StyledSealDetailTitleContainer,
 } from "./styled";
 import LikeChecked from "../../assets/images/like-checked.svg";
-import SealExampleImg from "../../assets/images/seal-example.png";
+import SealFrameImg from "../../assets/images/seal-frame.svg";
 
 const SealDetailPage = () => {
   return (
@@ -22,7 +26,7 @@ const SealDetailPage = () => {
           <StyledSealDetailHeaderTitle>씰 게시판</StyledSealDetailHeaderTitle>
         </StyledSealDetailHeaderContainer>
         <StyledSealDetailImgWrapper>
-          <img src={SealExampleImg} alt={"씰 사진"} width={"100%"} />
+          <img src={SealFrameImg} alt={"씰 사진"} width={"100%"} />
         </StyledSealDetailImgWrapper>
         <StyledSealDetailTitleContainer>
           <div>씰 이름 : 크리스마스~~~</div>
@@ -31,10 +35,20 @@ const SealDetailPage = () => {
             <div>19</div>
           </StyledSealDetailLikeWrapper>
         </StyledSealDetailTitleContainer>
-        <StyledSealDetailContentWrapper>
-          <p>발행일 : 2023.12.10</p>
-          <p>함께한 친구 : 김수진, 박동욱, 이수빈</p>
-        </StyledSealDetailContentWrapper>
+        <StyledSealDetailContentContainer>
+          <StyledSealDetailContentWrapper>
+            <StyledSealDetailDateIcon />
+            발행일
+          </StyledSealDetailContentWrapper>
+          <StyledSealDetailContentText>2023.12.10</StyledSealDetailContentText>
+          <StyledSealDetailContentWrapper>
+            <StyledSealDetailFriendIcon />
+            함께한 친구
+          </StyledSealDetailContentWrapper>
+          <StyledSealDetailContentText>
+            김수진, 박동욱, 이수빈
+          </StyledSealDetailContentText>
+        </StyledSealDetailContentContainer>
         <StyledSealDetailButton>주문하기</StyledSealDetailButton>
       </StyledSealDetailInnerContainer>
     </StyledSealDetailContainer>

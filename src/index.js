@@ -6,6 +6,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import StartPage from "./pages/Start/StartPage";
 import SealDetailPage from "./pages/SealDetail/SealDetailPage";
 import SealListPage from "./pages/SealList/SealListPage";
+import InvitationPage from "./pages/Invitation/InvitationPage";
+import StampResultPage from "./pages/StampResult/StampResultPage";
+import StampNamingPage from "./pages/StampNaming/StampNamingPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,6 +18,9 @@ root.render(
         <Route path="/" element={<StartPage />} />
         <Route path="/sealList" element={<SealListPage />} />
         <Route path="/sealDetail" element={<SealDetailPage />} />
+        <Route path="/invitation" element={<InvitationPage />} />
+        <Route path="/stampNaming" element={<StampNamingPage />} />
+        <Route path="/stampResult" element={<StampResultPage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

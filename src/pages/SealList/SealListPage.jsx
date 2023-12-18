@@ -7,10 +7,13 @@ import {
   StyledSealListSearchButtonImg,
   StyledSealListSearchWrapper,
   StyledSealListTitleContainer,
+  StyledSealListSealWrapper,
+  StyledSealListTitle,
 } from "./styled";
 import LikeChecked from "../../assets/images/like-checked.svg";
-import SealExampleImg from "../../assets/images/seal-example.png";
+import SealFrameImg from "../../assets/images/seal-frame.svg";
 import { useState } from "react";
+import { StyledSimpleHeaderContainer } from "../../styles";
 
 const SealListPage = () => {
   const [search, setSearch] = useState("");
@@ -22,7 +25,7 @@ const SealListPage = () => {
   return (
     <StyledSealListContainer>
       <StyledSealListInnerContainer>
-        <div>씰 게시판</div>
+        <StyledSimpleHeaderContainer>씰 게시판</StyledSimpleHeaderContainer>
         <StyledSealListSearchWrapper>
           <StyledSealListSearch
             type="text"
@@ -34,18 +37,26 @@ const SealListPage = () => {
             <StyledSealListSearchButtonImg />
           </StyledSealListSearchButton>
         </StyledSealListSearchWrapper>
-        <div>
-          <div>
-            <img src={SealExampleImg} alt={"씰 사진"} width={"100%"} />
-          </div>
+        <StyledSealListSealWrapper>
+          <img src={SealFrameImg} alt={"씰 사진"} width={"80%"} />
           <StyledSealListTitleContainer>
-            <div>씰 제목~~</div>
+            <StyledSealListTitle>씰 제목~~</StyledSealListTitle>
             <StyledSealListLikeWrapper>
               <img src={LikeChecked} alt={"좋아요 수"} />
-              <div>19</div>
+              <div style={{ color: "#992d2d" }}>19</div>
             </StyledSealListLikeWrapper>
           </StyledSealListTitleContainer>
-        </div>
+        </StyledSealListSealWrapper>
+        <StyledSealListSealWrapper>
+          <img src={SealFrameImg} alt={"씰 사진"} width={"80%"} />
+          <StyledSealListTitleContainer>
+            <StyledSealListTitle>씰 제목~~</StyledSealListTitle>
+            <StyledSealListLikeWrapper>
+              <img src={LikeChecked} alt={"좋아요 수"} />
+              <div style={{ color: "#992d2d" }}>19</div>
+            </StyledSealListLikeWrapper>
+          </StyledSealListTitleContainer>
+        </StyledSealListSealWrapper>
       </StyledSealListInnerContainer>
     </StyledSealListContainer>
   );
