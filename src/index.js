@@ -6,6 +6,12 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import StartPage from "./pages/Start/StartPage";
 import SealDetailPage from "./pages/SealDetail/SealDetailPage";
 import SealListPage from "./pages/SealList/SealListPage";
+import InvitationPage from "./pages/Invitation/InvitationPage";
+import StampResultPage from "./pages/StampResult/StampResultPage";
+import StampNamingPage from "./pages/StampNaming/StampNamingPage";
+import StampMakingPage from "./pages/StampMaking/StampMakingPage";
+import StampDetailPage from "./pages/StampDetail/StampDetailPage";
+import MySealListPage from "./pages/MySealList/MySealListPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -13,8 +19,14 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<StartPage />} />
+        <Route path="/mySealList" element={<MySealListPage />} />
         <Route path="/sealList" element={<SealListPage />} />
         <Route path="/sealDetail" element={<SealDetailPage />} />
+        <Route path="/stampDetail" element={<StampDetailPage />} />
+        <Route path="/invitation" element={<InvitationPage />} />
+        <Route path="/stampMaking" element={<StampMakingPage />} />
+        <Route path="/stampNaming" element={<StampNamingPage />} />
+        <Route path="/stampResult" element={<StampResultPage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
