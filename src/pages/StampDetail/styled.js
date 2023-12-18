@@ -3,7 +3,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import { BsCalendarDateFill } from "react-icons/bs";
 import { FaUserFriends } from "react-icons/fa";
 
-export const StyledSealDetailContainer = styled.div`
+export const StyledStampDetailContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 100vw;
@@ -11,7 +11,7 @@ export const StyledSealDetailContainer = styled.div`
   background-color: #fff6d4;
   font-size: 17px;
 `;
-export const StyledSealDetailInnerContainer = styled.div`
+export const StyledStampDetailInnerContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 20px;
@@ -19,7 +19,7 @@ export const StyledSealDetailInnerContainer = styled.div`
   max-width: 400px; // 추후 수정!
 `;
 
-export const StyledSealDetailHeaderContainer = styled.div`
+export const StyledStampDetailHeaderContainer = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 10px;
@@ -27,36 +27,36 @@ export const StyledSealDetailHeaderContainer = styled.div`
   //border-bottom: 3px solid white;
 `;
 
-export const StyledSealDetailHeaderIcon = styled(IoIosArrowBack)`
+export const StyledStampDetailHeaderIcon = styled(IoIosArrowBack)`
   width: 20px;
   height: 20px;
   padding-right: 10px;
 `;
 
-export const StyledSealDetailHeaderTitle = styled.div`
+export const StyledStampDetailHeaderTitle = styled.div`
   font-size: 20px;
 `;
 
-export const StyledSealDetailImgWrapper = styled.div`
+export const StyledStampDetailImgWrapper = styled.div`
   margin: 10px 30px;
   //width: 100%;
 `;
 
-export const StyledSealDetailTitleContainer = styled.div`
+export const StyledStampDetailTitleContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 20px;
   padding: 0 10px;
   color: #44403c;
 `;
 
-export const StyledSealDetailLikeWrapper = styled.div`
+export const StyledStampDetailLikeWrapper = styled.div`
   display: flex;
   align-items: center;
 `;
 
-export const StyledSealDetailContentContainer = styled.div`
+export const StyledStampDetailContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   //align-items: center;
@@ -69,33 +69,33 @@ export const StyledSealDetailContentContainer = styled.div`
   box-shadow: 1px 2px 1px gray;
 `;
 
-export const StyledSealDetailContentWrapper = styled.div`
+export const StyledStampDetailContentWrapper = styled.div`
   display: flex;
   color: #44403c;
 `;
 
-export const StyledSealDetailDateIcon = styled(BsCalendarDateFill)`
+export const StyledStampDetailDateIcon = styled(BsCalendarDateFill)`
   padding-right: 10px;
   width: 20px;
   height: 20px;
   color: #992d2d;
 `;
-export const StyledSealDetailFriendIcon = styled(FaUserFriends)`
+export const StyledStampDetailFriendIcon = styled(FaUserFriends)`
   padding-right: 10px;
   width: 20px;
   height: 20px;
   color: #992d2d;
 `;
 
-export const StyledSealDetailContentText = styled.p`
+export const StyledStampDetailContentText = styled.p`
   padding-bottom: 10px;
   border-bottom: 2px solid #992d2d;
   color: #44403c;
   //color: white;
 `;
 
-export const StyledSealDetailButton = styled.button`
-  margin: 20px auto;
+export const StyledStampDetailButton = styled.button`
+  margin: 10px auto;
   padding: 5px 0;
   width: 200px;
   border: none;
