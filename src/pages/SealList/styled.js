@@ -4,6 +4,9 @@ import { FaSearch } from "react-icons/fa";
 export const StyledSealListContainer = styled.div`
   display: flex;
   justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff6d4;
 `;
 
 export const StyledSealListInnerContainer = styled.div`
@@ -18,6 +21,7 @@ export const StyledSealListSearchWrapper = styled.div`
   display: flex;
   justify-content: center;
   margin: 10px 0;
+  //padding-bottom: 10px;
 `;
 
 export const StyledSealListSearch = styled.input`
@@ -38,25 +42,14 @@ export const StyledSealListSearchButton = styled.button`
   height: 30px;
   padding: 5px;
   border: none;
-  background-color: #2d9985;
+  background-color: #992d2d;
   border-radius: 50%;
   box-shadow: 1px 2px 1px gray;
+  color: white;
 `;
 
 export const StyledSealListSearchButtonImg = styled(FaSearch)`
   width: 15px;
   height: 15px;
   color: white;
-`;
-
-export const StyledSealListTitleContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
-export const StyledSealListTitle = styled.div``;
-
-export const StyledSealListLikeWrapper = styled.div`
-  display: flex;
-  align-items: center;
 `;
