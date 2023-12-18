@@ -6,15 +6,19 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import StartPage from "./pages/Start/StartPage";
 import SealDetailPage from "./pages/SealDetail/SealDetailPage";
 import SealListPage from "./pages/SealList/SealListPage";
+import Example from "./pages/Start/Example";
+import GlobalStye from "./GlobalStyle";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <GlobalStye />
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<StartPage />} />
         <Route path="/sealList" element={<SealListPage />} />
         <Route path="/sealDetail" element={<SealDetailPage />} />
+        <Route path="/example" element={<Example />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
