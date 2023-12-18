@@ -28,7 +28,7 @@ export const Introduce = styled.div`
 export const Title = styled.div`
   font-family: 'YClover-bold';
   margin-top: 5px;
-  font-size: 45px;
+  font-size: 30px;
   font-weight: 500;
   color: white;
 `;
