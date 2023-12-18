@@ -6,6 +6,7 @@ export const StyledStampNamingContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
+  font-size: 17px;
 `;
 
 export const StyledStampNamingStampWrapper = styled.div`

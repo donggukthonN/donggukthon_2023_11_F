@@ -3,12 +3,10 @@ import {
   StyledInvitationCopyButton,
   StyledInvitationCopyIcon,
   StyledInvitationFinishButton,
-  StyledInvitationGreenButton,
   StyledInvitationImg,
   StyledInvitationImgContainer,
   StyledInvitationLinkContainer,
   StyledInvitationLinkInput,
-  StyledInvitationRedButton,
   StyledInvitationTitle,
   StyledInvitationTitleRed,
 } from "./styled";

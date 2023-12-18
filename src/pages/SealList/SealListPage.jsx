@@ -1,19 +1,14 @@
 import {
   StyledSealListContainer,
   StyledSealListInnerContainer,
-  StyledSealListLikeWrapper,
   StyledSealListSearch,
   StyledSealListSearchButton,
   StyledSealListSearchButtonImg,
   StyledSealListSearchWrapper,
-  StyledSealListTitleContainer,
-  StyledSealListSealWrapper,
-  StyledSealListTitle,
 } from "./styled";
-import LikeChecked from "../../assets/images/like-checked.svg";
-import SealFrameImg from "../../assets/images/seal-frame.svg";
 import { useState } from "react";
 import { StyledSimpleHeaderContainer } from "../../styles";
+import SealItem from "../../components/SealList/SealItem";
 
 const SealListPage = () => {
   const [search, setSearch] = useState("");
@@ -37,26 +32,8 @@ const SealListPage = () => {
             <StyledSealListSearchButtonImg />
           </StyledSealListSearchButton>
         </StyledSealListSearchWrapper>
-        <StyledSealListSealWrapper>
-          <img src={SealFrameImg} alt={"씰 사진"} width={"80%"} />
-          <StyledSealListTitleContainer>
-            <StyledSealListTitle>씰 제목~~</StyledSealListTitle>
-            <StyledSealListLikeWrapper>
-              <img src={LikeChecked} alt={"좋아요 수"} />
-              <div style={{ color: "#992d2d" }}>19</div>
-            </StyledSealListLikeWrapper>
-          </StyledSealListTitleContainer>
-        </StyledSealListSealWrapper>
-        <StyledSealListSealWrapper>
-          <img src={SealFrameImg} alt={"씰 사진"} width={"80%"} />
-          <StyledSealListTitleContainer>
-            <StyledSealListTitle>씰 제목~~</StyledSealListTitle>
-            <StyledSealListLikeWrapper>
-              <img src={LikeChecked} alt={"좋아요 수"} />
-              <div style={{ color: "#992d2d" }}>19</div>
-            </StyledSealListLikeWrapper>
-          </StyledSealListTitleContainer>
-        </StyledSealListSealWrapper>
+        <SealItem />
+        <SealItem />
       </StyledSealListInnerContainer>
     </StyledSealListContainer>
   );
