@@ -15,9 +15,26 @@ export const StyledSealDetailInnerContainer = styled.div`
 
 export const StyledSealDetailHeaderContainer = styled.div`
   display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px 0;
+  //border-bottom: 3px solid white;
 `;
 
-export const StyledSealDetailHeaderIcon = styled(IoIosArrowBack)``;
+export const StyledSealDetailHeaderIcon = styled(IoIosArrowBack)`
+  width: 20px;
+  height: 20px;
+  padding-right: 10px;
+`;
+
+export const StyledSealDetailHeaderTitle = styled.div`
+  font-size: 20px;
+`;
+
+export const StyledSealDetailImgWrapper = styled.div`
+  margin: 10px 30px;
+  //width: 100%;
+`;
 
 export const StyledSealDetailTitleContainer = styled.div`
   display: flex;
