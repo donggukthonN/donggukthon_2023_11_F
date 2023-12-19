@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import StartCount from "../../components/StampMaking/StartCount";
 import Timer from "../../components/StampMaking/Timer";
 import {
-  StyledStampMakingButton,
   StyledStampMakingContainer,
   StyledStampMakingInnerContainer,
   StyledStampMakingTitle,
@@ -10,16 +9,24 @@ import {
 import ChooseColor from "../../components/StampMaking/ChooseColor";
 import DrawingPanel from "../../components/StampMaking/DrawingPanel";
 import { useNavigate, useParams } from "react-router-dom";
-import { getCheckRoomMaker, getMakeStamp } from "../../api/canvas";
+import { getMakeStamp } from "../../api/canvas";
+import { useSetRecoilState } from "recoil";
+import { linkState } from "../../stores/link-state";
+import SockJS from "sockjs-client";
+import { Client, Stomp } from "@stomp/stompjs";
 
 const StampMakingPage = () => {
   const navigate = useNavigate();
   const params = useParams();
 
+  const setLink = useSetRecoilState(linkState);
+
   const [selectedColor, setSelectedColor] = useState("#f44336");
   const [ready, setReady] = useState(false);
   const [leftTime, setLeftTime] = useState(0); // 처음엔 정지함
   const [colorData, setColorData] = useState([]); // 초기 배열
+  const [timeout, setTimeout] = useState(false);
+  const [changedColor, setChangedColor] = useState("");
 
   useEffect(() => {
     if (ready) {
@@ -27,14 +34,15 @@ const StampMakingPage = () => {
       console.log("api 호출하기 + 소켓 연결");
       let data = getMakeStamp(params.id, "accessCookie값 넣기");
       if (data.status === "SUCCESS") {
-        navigate(`/`);
         setLeftTime(data.result.leftTime);
         setColorData(data.result.color);
-        // 여기서 링크값 recoil에 저장하기!
+        connectToServer(); // 소켓 연결
       } else if (data.status === "FAILED") {
         alert(data.message);
       } else if (data.status === "NONE") {
+        setLink(`${process.env.REACT_APP_API_URL}/stampMaking/${params.id}`);
         navigate(`/`);
+        // 여기서 링크값 recoil에 저장하기!
       }
     }
   }, [ready, params.id]);
@@ -43,17 +51,37 @@ const StampMakingPage = () => {
     setSelectedColor(color.hex);
   };
 
-  const onClickFinish = () => {
-    let data = getCheckRoomMaker(params.id, "accessCookie값 넣기");
-    if (data.status === "SUCCESS") {
-      if (data.result.roomMaker) {
-        navigate(`/stampNaming`); // 팀장일 때
-      } else {
-        navigate(`/loading`);
-      }
-    } else if (data.status === "FAILED") {
-      alert(data.message);
+  // 3-2. 소켓열기
+  const stompClientRef = useRef(null);
+
+  const connectToServer = () => {
+    if (stompClientRef.current && stompClientRef.current.connected) {
+      console.warn("Already connected!");
+      return;
     }
+    // 토큰 헤더에 어케 넘겨..?
+    const fullUrl = `${import.meta.env.VITE_APP_SERVER_HOST}/ws-connection`;
+    const socket = new SockJS(fullUrl);
+    stompClientRef.current = Stomp.over(socket);
+
+    const client = new Client({
+      webSocketFactory: () => socket,
+    });
+
+    client.onConnect = (frame) => {
+      console.log("Connected: " + frame);
+      client.subscribe(`/subscribe/canvas/${params.id}`, (messageOutput) => {
+        setChangedColor(JSON.parse(messageOutput.body));
+      });
+    };
+
+    client.onStompError = (error) => {
+      console.error("WebSocket Connection Error: ", error);
+      setTimeout(connectToServer, 5000); // 연결이 끊어질 경우 5초 후에 재연결 시도
+    };
+
+    client.activate();
+    stompClientRef.current = client; //값 할당
   };
 
   return (
@@ -64,7 +92,9 @@ const StampMakingPage = () => {
           <StyledStampMakingTitle>
             우표를 예쁘게 꾸며보세요!
           </StyledStampMakingTitle>
-          {ready && leftTime > 0 && <Timer leftTime={leftTime} />}
+          {ready && leftTime > 0 && (
+            <Timer leftTime={leftTime} setTimeout={setTimeout} />
+          )}
           <ChooseColor
             selectedColor={selectedColor}
             onChangeColor={onChangeColor}
@@ -75,11 +105,10 @@ const StampMakingPage = () => {
               height={13}
               selectedColor={selectedColor}
               colorData={colorData}
+              timeout={timeout}
+              changedColor={changedColor}
             />
           )}
-          <StyledStampMakingButton onClick={onClickFinish}>
-            완성하기
-          </StyledStampMakingButton>
         </StyledStampMakingInnerContainer>
       </StyledStampMakingContainer>
     </>

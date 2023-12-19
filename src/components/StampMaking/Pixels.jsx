@@ -51,6 +51,29 @@ const Pixels = ({
     }
   };
 
+  // 소켓 통신
+  /*
+  const sendMessage = (messageContent) => {
+    if (!stompClientRef.current || !stompClientRef.current.connected) {
+      console.error(
+        "WebSocket connection is not established. Please connect first."
+      );
+      return;
+    }
+
+    const chatRequest = {
+      xCoordinate: xCoordinate,
+      yCoordinate: yCoordinate,
+      color: pixelColor
+    };
+
+    stompClientRef.current.publish({
+      destination: `/topic/canvas/${barID}`,
+      body: JSON.stringify(chatRequest), // 헤더도.. 추가 필요해..
+    });
+  };
+  */
+
   return (
     <Container
       //onClick={applyColor}

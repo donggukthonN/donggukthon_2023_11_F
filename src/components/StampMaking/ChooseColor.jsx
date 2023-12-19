@@ -69,7 +69,7 @@ const Container = styled.div`
 const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding-left: 20px;
+  padding-left: 10px;
 `;
 
 const Button = styled.button`

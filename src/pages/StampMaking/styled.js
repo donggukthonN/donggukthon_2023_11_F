@@ -4,15 +4,14 @@ export const StyledStampMakingContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #fff6d4;
-  overflow-y: scroll;
 `;
 
 export const StyledStampMakingInnerContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 20px;
+  padding: 0 20px;
   padding-bottom: 20px;
   width: 100%;
   height: 100%;
@@ -26,14 +25,14 @@ export const StyledStampMakingTitle = styled.div`
   color: #992d2d;
 `;
 
-export const StyledStampMakingButton = styled.button`
-  margin: 10px auto;
-  padding: 5px 0;
-  width: 200px;
-  border: none;
-  border-radius: 20px;
-  color: white;
-  background-color: #992d2d;
-  box-shadow: 1px 2px 1px gray;
-  font-size: 20px;
-`;
+// export const StyledStampMakingButton = styled.button`
+//   margin: 10px auto;
+//   padding: 5px 0;
+//   width: 200px;
+//   border: none;
+//   border-radius: 20px;
+//   color: white;
+//   background-color: #992d2d;
+//   box-shadow: 1px 2px 1px gray;
+//   font-size: 20px;
+// `;

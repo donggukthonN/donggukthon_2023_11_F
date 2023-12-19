@@ -16,8 +16,8 @@ import {
 import LikeChecked from "../../assets/icon/like-checked.svg";
 import LikeUnchecked from "../../assets/icon/like-unchecked.svg";
 import { useEffect, useState } from "react";
-import CustomStamp from "../../components/Stamp/CustomStamp";
 import { getStampSingle, putStampLike } from "../../api/stamp";
+import StampImg from "../../components/StampList/StampImg";
 
 const StampDetailPage = ({ stampId }) => {
   // param으로 받기
@@ -31,15 +31,15 @@ const StampDetailPage = ({ stampId }) => {
       alert(data.message);
     }
 
-    // let result = {
-    //   nickname: "우표 이름~~",
-    //   likeCnt: 3,
-    //   like: false, //true면 채워진하트, false면 빈하트
-    //   date: "yyyy.mm.dd", //2023.09.03
-    //   friendList: ["김수진", "박동욱", "이수빈"],
-    //   ImgUrl: "String", //url
-    // };
-    // setStampData(result);
+    let result = {
+      nickname: "우표 이름~~",
+      likeCnt: 3,
+      like: false, //true면 채워진하트, false면 빈하트
+      date: "yyyy.mm.dd", //2023.09.03
+      friendList: ["김수진", "박동욱", "이수빈"],
+      ImgUrl: "String", //url
+    };
+    setStampData(result);
   }, [stampId]);
 
   const onClickLike = (like) => {
@@ -64,7 +64,7 @@ const StampDetailPage = ({ stampId }) => {
             </StyledStampDetailHeaderTitle>
           </StyledStampDetailHeaderContainer>
           <StyledStampDetailImgWrapper>
-            <CustomStamp />
+            <StampImg />
           </StyledStampDetailImgWrapper>
           <StyledStampDetailTitleContainer>
             <div>이름 : {stampData.nickname}</div>
