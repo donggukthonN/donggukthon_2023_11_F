@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { RecoilRoot } from "recoil";
 import "./index.css";
 import GlobalStye from "./GlobalStyle";
 import reportWebVitals from "./reportWebVitals";
@@ -22,24 +23,25 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <GlobalStye />
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<StartPage />} />
-        <Route path="/signin" element={<NicknamePage />} />
-        <Route path="/mypage" element={<MyPage />} />
-
-        <Route path="/mySealList" element={<MySealListPage />} />
-        <Route path="/sealList" element={<SealListPage />} />
-        <Route path="/sealDetail" element={<SealDetailPage />} />
-        <Route path="/example" element={<Example />} />
-        <Route path="/stampDetail" element={<StampDetailPage />} />
-        <Route path="/invitation" element={<InvitationPage />} />
-        <Route path="/stampMaking" element={<StampMakingPage />} />
-        <Route path="/loading" element={<LoadingPage />} />
-        <Route path="/stampNaming" element={<StampNamingPage />} />
-        <Route path="/stampResult" element={<StampResultPage />} />
-      </Routes>
-    </BrowserRouter>
+    <RecoilRoot>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<StartPage />} />
+          <Route path="/signin" element={<NicknamePage />} />
+          <Route path="/mypage" element={<MyPage />} />
+          <Route path="/mySealList" element={<MySealListPage />} />
+          <Route path="/sealList" element={<SealListPage />} />
+          <Route path="/sealDetail" element={<SealDetailPage />} />
+          <Route path="/example" element={<Example />} />
+          <Route path="/stampDetail" element={<StampDetailPage />} />
+          <Route path="/invitation" element={<InvitationPage />} />
+          <Route path="/stampMaking" element={<StampMakingPage />} />
+          <Route path="/loading" element={<LoadingPage />} />
+          <Route path="/stampNaming" element={<StampNamingPage />} />
+          <Route path="/stampResult" element={<StampResultPage />} />
+        </Routes>
+      </BrowserRouter>
+    </RecoilRoot>
   </React.StrictMode>
 );
 

@@ -4,7 +4,7 @@ import Drawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
 //
 import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
+// import CssBaseline from '@mui/material/CssBaseline';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -37,8 +37,8 @@ const MenuBar = ({children}) => {
 
   return(
     <Box sx={{display: 'flex'}}>
-      <CssBaseline />
-      <AppBar position="fixed" open={isDrawer}>
+      {/* <CssBaseline /> */}
+      <AppBar  open={isDrawer} sx={{maxWidth: 400}}>
         <Toolbar style={{ backgroundColor: '#fcfdfb'}}>
           <Typography variant="h6" sx={{ fontFamily: 'YClover-bold', color: '#44403C'}} noWrap component="div">
             김동국님의 우표

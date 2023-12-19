@@ -8,5 +8,7 @@ export const Container = styled.div`
   height: 749px;
   width: 400px;
   background-size: cover;
-  border: 1px solid black;
+  // border: 1px solid black;
   `; 
+
+  export const ListContainer = styled.div``;
