@@ -14,14 +14,7 @@ const GlobalStye = createGlobalStyle`
   @media (max-width: 480px) {
 
   }
-  // @font-face {
-  //   font-family: "YClover-Bold";
-  //   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/YClover-Bold.woff2")
-  //     format("woff2");
-  //   font-weight: 700;
-  //   font-style: normal;
-  // }  
-
+  
   body {
     /* 커스텀 글씨체 표시*/
     // font-family: 'YClover-Bold', 'Otomanopee One'

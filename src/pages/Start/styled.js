@@ -76,6 +76,9 @@ export const InputBox = styled.input`
   height: 50px;
   width: 220px;
   padding: 10px;
+  border-radius: 50px;
+  border: none;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 `;
 
 export const CheckButton = styled.button`
@@ -86,6 +89,7 @@ export const CheckButton = styled.button`
   background-color: #2D9985;
   box-shadow: -5px -5px 10px 0px #FFF, 5px 5px 10px 0px #BEBEBE;
   color: white;
+  border: none;
 `;
 
 export const SubmitBtn = styled.button`
@@ -99,4 +103,6 @@ export const SubmitBtn = styled.button`
   display: flex;
   justify-content: center; 
   align-items: center;
-  `;
+  border: none;
+  box-shadow: -5px -5px 10px 0px #FFF, 5px 5px 10px 0px #BEBEBE;
+`;

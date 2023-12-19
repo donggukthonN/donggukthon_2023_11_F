@@ -1,10 +1,9 @@
-import { useRecoilState } from "recoil";
 import { useState } from "react";
 import Drawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
 //
 import Box from '@mui/material/Box';
-// import CssBaseline from '@mui/material/CssBaseline';
+import CssBaseline from '@mui/material/CssBaseline';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -36,14 +35,14 @@ const MenuBar = ({children}) => {
   };
 
   return(
-    <Box sx={{display: 'flex'}}>
-      {/* <CssBaseline /> */}
-      <AppBar  open={isDrawer} sx={{maxWidth: 400}}>
+    <Box sx={{display: 'flex'}} >
+      <CssBaseline />
+      <AppBar position="absolute" open={isDrawer} >
         <Toolbar style={{ backgroundColor: '#fcfdfb'}}>
           <Typography variant="h6" sx={{ fontFamily: 'YClover-bold', color: '#44403C'}} noWrap component="div">
-            김동국님의 우표
+            김동국님
           </Typography>
-          <Box sx={{display: 'flex', flexGrow: 1,justifyContent: 'flex-end'}}>
+          <Box sx={{display: 'flex', flexGrow: 1, justifyContent: 'flex-end'}}>
             <IconButton
               color="inherit"
               aria-label="open drawer"
@@ -75,14 +74,16 @@ const MenuBar = ({children}) => {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+        <List >
+          {['좋아요 모음집', '우표게시판', '씰게시판', '로그아웃'].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                 </ListItemIcon>
-                <ListItemText primary={text} />
+                <ListItemText 
+                disableTypography 
+                primary={<Typography variant="body2" sx={{ fontFamily: 'YClover-regular'}} >{text}</Typography>} />
               </ListItemButton>
             </ListItem>
           ))}

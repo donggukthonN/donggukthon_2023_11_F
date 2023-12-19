@@ -10,8 +10,13 @@ import {
 import santa from '../../assets/icon/santa.svg';
 import christmas from '../../assets/icon/christmas.svg';
 import next from '../../assets/icon/next_btn.svg';
+import { useState } from 'react';
+import { useNavigation } from 'react-router-dom';
 
 const NicknamePage = () => {
+  const [name, setName] = useState('');
+  const navigate = useNavigation();
+
   return(
     <Container>
       <ImageContainer>
@@ -23,10 +28,10 @@ const NicknamePage = () => {
         <text  style={{color: '#2D9985', fontFamily:'YClover-regular'}}>을 입력하세요 !</text>
       </Info>
       <CheckBox>
-        <InputBox placeholder='예) 김동국'></InputBox>
+        <InputBox placeholder='예) 김동국' onChange={(e)=>setName(e.target.value)}></InputBox>
         <CheckButton>중복확인</CheckButton>
       </CheckBox>
-      <SubmitBtn>둘러보기 <img src={next} style={{marginLeft: 10}}/></SubmitBtn>
+      <SubmitBtn onClick={nextBtn}>둘러보기 <img src={next} style={{marginLeft: 10}}/></SubmitBtn>
     </Container>
   );
 };

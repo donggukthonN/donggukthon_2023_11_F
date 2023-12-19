@@ -1,4 +1,5 @@
 import {
+  Root,
   StyledSealListContainer,
   StyledSealListEmptyText,
   StyledSealListInnerContainer,
@@ -76,34 +77,36 @@ const SealListPage = () => {
   };
 
   return (
-    <StyledSealListContainer>
-      <StyledSealListInnerContainer>
-        <StyledSimpleHeaderContainer>씰 게시판</StyledSimpleHeaderContainer>
-        <StyledSealListSearchWrapper>
-          <StyledSealListSearch
-            type="text"
-            value={search}
-            onChange={onChangeSearch}
-            placeholder="씰 이름을 검색해주세요."
-          />
-          <StyledSealListSearchButton onClick={() => onClickSearch(search)}>
-            <StyledSealListSearchButtonImg />
-          </StyledSealListSearchButton>
-        </StyledSealListSearchWrapper>
-        {sealListSearchData &&
-        sealListSearchData !== undefined &&
-        sealListSearchData.length > 0 ? (
-          sealListSearchData.map((item) => (
-            <SealItem key={item.id} sealData={item} />
-          ))
-        ) : (
-          <StyledSealListEmptyText>
-            {" "}
-            검색 결과가 없습니다.{" "}
-          </StyledSealListEmptyText>
-        )}
-      </StyledSealListInnerContainer>
-    </StyledSealListContainer>
+    <Root>
+      <StyledSealListContainer>
+        <StyledSealListInnerContainer>
+          <StyledSimpleHeaderContainer>씰 게시판</StyledSimpleHeaderContainer>
+          <StyledSealListSearchWrapper>
+            <StyledSealListSearch
+              type="text"
+              value={search}
+              onChange={onChangeSearch}
+              placeholder="씰 이름을 검색해주세요."
+            />
+            <StyledSealListSearchButton onClick={() => onClickSearch(search)}>
+              <StyledSealListSearchButtonImg />
+            </StyledSealListSearchButton>
+          </StyledSealListSearchWrapper>
+          {sealListSearchData &&
+          sealListSearchData !== undefined &&
+          sealListSearchData.length > 0 ? (
+            sealListSearchData.map((item) => (
+              <SealItem key={item.id} sealData={item} />
+            ))
+          ) : (
+            <StyledSealListEmptyText>
+              {" "}
+              검색 결과가 없습니다.{" "}
+            </StyledSealListEmptyText>
+          )}
+        </StyledSealListInnerContainer>
+      </StyledSealListContainer>
+    </Root>
   );
 };
 

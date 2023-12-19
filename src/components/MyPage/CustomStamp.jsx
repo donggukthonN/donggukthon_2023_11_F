@@ -2,6 +2,7 @@ import styled from "styled-components";
 import frame from "../../assets/icon/stamp_frame.svg";
 import question from "../../assets/icon/no_image.svg";
 
+//우표 프레임 만드는 함수입니다.
 const CustomStamp = ({ userId }) => {
   return (
     <Frame>

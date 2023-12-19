@@ -45,13 +45,12 @@ const Frame = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   background-image: url(${frame});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; /*반복 방지*/
-  // background-color: white;
 `;
 
 const Image = styled.img`
@@ -63,17 +62,15 @@ const StyledStampItemTitleContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 10px;
-  width: 80%;
+  width: 70%;
 `;
 
 const StyledStampItemTitle = styled.div`
-  //font-family: "YClover-regular";
   font-size: 12px;
 `;
 
 const StyledStampItemLikeWrapper = styled.div`
   display: flex;
   align-items: center;
-  //font-family: "YClover-regular";
   font-size: 10px;
 `;

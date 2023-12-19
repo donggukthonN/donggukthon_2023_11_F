@@ -1,11 +1,21 @@
 import styled from "styled-components";
 import { FaSearch } from "react-icons/fa";
 
+export const Root = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  height: 693px;
+  background-color: #FFF6D4;
+`;
+
 export const StyledSealListContainer = styled.div`
   display: flex;
   justify-content: center;
-  width: 100vw;
-  min-height: 100vh;
+  // width: 100vw;
+  // min-height: 100vh;
+  width: 100%;
   background-color: #fff6d4;
 `;
 

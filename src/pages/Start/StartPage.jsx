@@ -5,8 +5,24 @@ import {
   ProjectName,
   SignIn,
 } from './styled';
+import { useEffect } from 'react';
 
 const StartPage = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://app.embed.im/snow.js';
+    script.defer = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  const kakaoLogin = () => {
+    window.location.href = `https://red-nosed.com/oauth2/authorization/kakao`;
+  };
+
   return (
     <Container>
       <div style={{display: 'flex', justifyContent: 'center', marginTop: 72}}>
@@ -23,7 +39,7 @@ const StartPage = () => {
           나만의 씰만들기
         </Title>
       </div>
-      <SignIn>카카오 계정으로 로그인하기</SignIn>
+      <SignIn onClick={kakaoLogin} >카카오 계정으로 로그인하기</SignIn>
     </Container>
   );
 };
