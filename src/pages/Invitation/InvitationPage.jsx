@@ -12,10 +12,26 @@ import {
 } from "./styled";
 import SantaImg from "../../assets/images/santa-Img.svg";
 import TreeImg from "../../assets/images/tree-Img.svg";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { getMakeCanvas } from "../../api/user";
+import { useNavigate } from "react-router-dom";
 
 const InvitationPage = () => {
+  const navigate = useNavigate();
+
   const copyLinkRef = useRef();
+
+  const [canvasId, setCanvasId] = useState("");
+
+  useEffect(() => {
+    // 3-1 api
+    let data = getMakeCanvas("accessCookie값 넣기");
+    if (data.status === "SUCCESS") {
+      setCanvasId(data.result.canvasId);
+    } else {
+      alert(data.message);
+    }
+  }, []);
 
   const onClickCopy = () => {
     copyLinkRef.current.focus();
@@ -26,7 +42,11 @@ const InvitationPage = () => {
     });
   };
 
-  const onClickStart = () => {};
+  const onClickStart = () => {
+    if (canvasId && canvasId !== "" && canvasId !== undefined) {
+      navigate(`/stampMaking/${canvasId}`);
+    }
+  };
 
   return (
     <StyledInvitationContainer>
@@ -42,17 +62,19 @@ const InvitationPage = () => {
         <StyledInvitationImg src={SantaImg} alt="산타" />
         <StyledInvitationImg src={TreeImg} alt="트리" />
       </StyledInvitationImgContainer>
-      <StyledInvitationLinkContainer>
-        <StyledInvitationLinkInput
-          type="text"
-          ref={copyLinkRef}
-          value={"http://localhost:3000"}
-          readOnly
-        />
-        <StyledInvitationCopyButton onClick={onClickCopy}>
-          <StyledInvitationCopyIcon />
-        </StyledInvitationCopyButton>
-      </StyledInvitationLinkContainer>
+      {canvasId && canvasId !== "" && canvasId !== undefined && (
+        <StyledInvitationLinkContainer>
+          <StyledInvitationLinkInput
+            type="text"
+            ref={copyLinkRef}
+            value={`${process.env.REACT_APP_API_URL}/stampMaking/${canvasId}`}
+            readOnly
+          />
+          <StyledInvitationCopyButton onClick={onClickCopy}>
+            <StyledInvitationCopyIcon />
+          </StyledInvitationCopyButton>
+        </StyledInvitationLinkContainer>
+      )}
       <StyledInvitationFinishButton onClick={onClickStart}>
         우표 만들러 가기
       </StyledInvitationFinishButton>

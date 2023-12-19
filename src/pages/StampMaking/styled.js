@@ -23,6 +23,7 @@ export const StyledStampMakingTitle = styled.div`
   margin-top: 40px;
   text-align: center;
   font-size: 20px;
+  color: #992d2d;
 `;
 
 export const StyledStampMakingButton = styled.button`

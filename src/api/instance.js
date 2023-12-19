@@ -14,4 +14,17 @@ sealInstance.defaults.baseURL += `/api/v1/seal`;
 const stampInstance = axios.create(instance.defaults);
 sealInstance.defaults.baseURL += `/api/v1/stamp`;
 
-export { loginInstance, sealInstance, stampInstance, instance as default };
+const userInstance = axios.create(instance.defaults);
+sealInstance.defaults.baseURL += `/api/v1/user`;
+
+const canvasInstance = axios.create(instance.defaults);
+sealInstance.defaults.baseURL += `/api/v1/canvas`;
+
+export {
+  loginInstance,
+  sealInstance,
+  stampInstance,
+  userInstance,
+  canvasInstance,
+  instance as default,
+};

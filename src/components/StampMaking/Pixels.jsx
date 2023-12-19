@@ -10,20 +10,21 @@ const Container = styled.div`
   }
 `;
 
-const Pixels = ({ xCoordinate, yCoordinate, selectedColor, canDraggable }) => {
-  //let initialColor = colorArray[xCoordinate][yCoordinate]; // 나중에 useState로 바꾸기
-  const [pixelColor, setPixelColor] = useState("#ffffff"); // 2차원 배열에서 특정 위치에 해당하는 값을 초기값으로!
+const Pixels = ({
+  xCoordinate,
+  yCoordinate,
+  selectedColor,
+  canDraggable,
+  changedColor,
+  colorData,
+}) => {
+  let initialColor = colorData[xCoordinate][yCoordinate]; // 나중에 useState로 바꾸기
+  const [pixelColor, setPixelColor] = useState(initialColor); // 2차원 배열에서 특정 위치에 해당하는 값을 초기값으로!
 
   useEffect(() => {
-    let changeColorData = {
-      // 더미데이터 나중에 삭제해!
-      xCoordinate: 0,
-      yCoordinate: 0,
-      color: "red",
-    };
     // 나중에 소켓 연결하고 함수로 바꾸기
-    changeColorOther(changeColorData);
-  }, []);
+    changeColorOther(changedColor);
+  }, [changedColor]);
 
   const changeColorOther = (changeColorData) => {
     // 나중에 소켓 연결하고 해보기
