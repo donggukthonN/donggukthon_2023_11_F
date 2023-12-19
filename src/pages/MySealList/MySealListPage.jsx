@@ -2,18 +2,42 @@ import {
   StyledMySealListContainer,
   StyledMySealListCookie1,
   StyledMySealListCookie2,
+  StyledMySealListEmptyText,
   StyledMySealListInnerContainer,
   StyledMySealListMenuLeft,
   StyledMySealListMenuRight,
   StyledMySealListMenuWrapper,
+  StyledMyStampListContent,
 } from "./styled";
 import { StyledSimpleHeaderContainer } from "../../styles";
 import SealItem from "../../components/SealList/SealItem";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getSealMyList } from "../../api/seal";
+import { getStampMyList } from "../../api/stamp";
+import StampItem from "../../components/StampList/StampItem";
 
 const MySealListPage = () => {
-  const [selectedMenu, setSelectedMenu] = useState(1); // 0 : 우표, 1 : 씰
+  const [selectedMenu, setSelectedMenu] = useState(0); // 0 : 우표, 1 : 씰
+  const [listData, setListData] = useState(null);
 
+  useEffect(() => {
+    if (selectedMenu === 0) {
+      // 우표 일때 api 호출
+      let data = getStampMyList("accessCookie값 넣기");
+      if (data.status === "SUCCESS") {
+        setListData(data.result.stampList);
+      } else {
+        alert(data.message);
+      }
+    } else {
+      let data = getSealMyList("accessCookie값 넣기");
+      if (data.status === "SUCCESS") {
+        setListData(data.result.sealList);
+      } else {
+        alert(data.message);
+      }
+    }
+  }, [selectedMenu]);
   const onClickStampList = () => {
     if (selectedMenu === 1) {
       setSelectedMenu(0);
@@ -49,12 +73,23 @@ const MySealListPage = () => {
           </StyledMySealListMenuRight>
         </StyledMySealListMenuWrapper>
         {selectedMenu === 0 ? (
-          <></>
+          listData && listData !== undefined && listData.length > 0 ? (
+            <StyledMyStampListContent>
+              {listData.map((item) => (
+                <StampItem key={item.id} stampData={item} />
+              ))}
+            </StyledMyStampListContent>
+          ) : (
+            <StyledMySealListEmptyText>
+              우표 보관함이 비어있습니다.
+            </StyledMySealListEmptyText>
+          )
+        ) : listData && listData !== undefined && listData.length > 0 ? (
+          listData.map((item) => <SealItem key={item.id} sealData={item} />)
         ) : (
-          <>
-            <SealItem />
-            <SealItem />
-          </>
+          <StyledMySealListEmptyText>
+            씰 보관함이 비어있습니다.
+          </StyledMySealListEmptyText>
         )}
       </StyledMySealListInnerContainer>
     </StyledMySealListContainer>

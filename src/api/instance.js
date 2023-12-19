@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 const instance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
@@ -8,7 +8,23 @@ const instance = axios.create({
 const loginInstance = axios.create(instance.defaults);
 loginInstance.defaults.baseURL += `/api/login`;
 
+const sealInstance = axios.create(instance.defaults);
+sealInstance.defaults.baseURL += `/api/v1/seal`;
+
+const stampInstance = axios.create(instance.defaults);
+sealInstance.defaults.baseURL += `/api/v1/stamp`;
+
+const userInstance = axios.create(instance.defaults);
+sealInstance.defaults.baseURL += `/api/v1/user`;
+
+const canvasInstance = axios.create(instance.defaults);
+sealInstance.defaults.baseURL += `/api/v1/canvas`;
+
 export {
   loginInstance,
-  instance as default
-}; 
+  sealInstance,
+  stampInstance,
+  userInstance,
+  canvasInstance,
+  instance as default,
+};

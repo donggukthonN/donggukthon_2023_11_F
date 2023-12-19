@@ -38,8 +38,8 @@ const StyledStartCountContainer = styled.div`
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background-color: black;
-  opacity: 0.6;
+  background-color: #3e3e3e;
+  opacity: 0.9;
   font-size: 17px;
   z-index: 100;
 `;

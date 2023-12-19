@@ -5,8 +5,10 @@ export const StyledStampNamingContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100vw;
   height: 100vh;
   font-size: 17px;
+  background-color: #fff6d4;
 `;
 
 export const StyledStampNamingStampWrapper = styled.div`
@@ -26,11 +28,12 @@ export const StyledStampNamingTitle = styled.div`
 export const StyledStampNamingExplain = styled.div`
   padding: 5px;
   color: #2d9985;
+  font-family: "YClover-regular";
   font-size: 13px;
 `;
 
 export const StyledStampNamingInput = styled.input`
-  margin: 5px;
+  margin: 10px;
   padding: 10px 20px;
   border: none;
   border-radius: 10px;
