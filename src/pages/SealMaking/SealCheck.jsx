@@ -2,19 +2,22 @@ import styled from "styled-components";
 import background from '../../assets/icon/background.svg';
 import exampleSeal from '../../assets/icon/example_seal.svg';
 
-const SealComplete = () => {
+const SealCheck = () => {
   return(
     <Container>
       <IntroText>씰이 완성되었어요 !</IntroText>
       <img src={exampleSeal} style={{marginTop: 70}}/>
-      <div style={{marginTop: 41, fontSize: 25, fontFamily: 'YClover-regular', fontWeight: 600}}>이름을 붙여주세요 !</div>
-      <input style={{borderRadius: 50, marginTop: 21, height: 58, width: 285, border: 'none'}}/>
-      <button style={{backgroundColor: '#2D9985', width: 149, height: 48, color: 'white', marginTop: 26, borderRadius: 50, border: 'none', fontSize: 20}}>저장완료</button>
+      <div style={{marginTop: 41, fontSize: 25, fontFamily: 'YClover-regular', fontWeight: 600, textAlign: 'center'}}>
+        2023 크리스마스 씰이 <br/> <span style={{color: '#2D9985'}}>씰 게시판</span>에 등록되었습니다.
+      </div>
+      <button style={{backgroundColor: '#2D9985', width: 160, height: 48, color: 'white', marginTop: 26, borderRadius: 50, border: 'none', fontSize: 20}}>
+        구경하러 가기
+      </button>
     </Container>
   );
 };
 
-export default SealComplete;
+export default SealCheck;
 
 const Container = styled.div`
   display: flex;
