@@ -14,7 +14,7 @@ import SealItem from "../../components/SealList/SealItem";
 const SealListPage = () => {
   const [search, setSearch] = useState("");
   const [sealListData, setSealListData] = useState(null);
-  //const [sealListSearchData, setSealListSearchData] = useState(null);
+  const [sealListSearchData, setSealListSearchData] = useState(null);
 
   useEffect(() => {
     let sealList = [
@@ -41,23 +41,28 @@ const SealListPage = () => {
       },
     ];
     setSealListData(sealList);
+    setSealListSearchData(sealList);
   }, []);
 
   const onChangeSearch = (e) => {
     setSearch(e.target.value);
+    setSealListSearchData(
+      sealListData.filter((item) =>
+        item.sealName.toLowerCase().includes(e.target.value.toLowerCase())
+      )
+    );
   };
 
-  const onClickSearch = () => {
-    // 검색하기 (프론트에서 필터링!)
-    if (!search || search === undefined || search === "") {
+  const onClickSearch = (text) => {
+    if (!text || text === undefined || text === "") {
       alert("검색어를 입력해주세요");
     } else {
-      setSealListData(
+      setSealListSearchData(
         sealListData.filter((item) =>
-          item.sealName.toLowerCase().includes(search.toLowerCase())
+          item.sealName.toLowerCase().includes(text.toLowerCase())
         )
       );
-    } // val.title.toLowerCase().includes(searchTerm.toLowerCase())
+    }
   };
 
   return (
@@ -71,14 +76,16 @@ const SealListPage = () => {
             onChange={onChangeSearch}
             placeholder="씰 이름을 검색해주세요."
           />
-          <StyledSealListSearchButton onClick={onClickSearch}>
+          <StyledSealListSearchButton onClick={() => onClickSearch(search)}>
             <StyledSealListSearchButtonImg />
           </StyledSealListSearchButton>
         </StyledSealListSearchWrapper>
-        {sealListData &&
-        sealListData !== undefined &&
-        sealListData.length > 0 ? (
-          sealListData.map((item) => <SealItem key={item.id} sealData={item} />)
+        {sealListSearchData &&
+        sealListSearchData !== undefined &&
+        sealListSearchData.length > 0 ? (
+          sealListSearchData.map((item) => (
+            <SealItem key={item.id} sealData={item} />
+          ))
         ) : (
           <StyledSealListEmptyText>
             {" "}

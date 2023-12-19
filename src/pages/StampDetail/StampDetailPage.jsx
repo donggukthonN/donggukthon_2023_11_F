@@ -15,7 +15,6 @@ import {
 } from "./styled";
 import LikeChecked from "../../assets/icon/like-checked.svg";
 import LikeUnchecked from "../../assets/icon/like-unchecked.svg";
-import SealFrameImg from "../../assets/images/seal-frame.svg";
 import { useEffect, useState } from "react";
 import CustomStamp from "../../components/Stamp/CustomStamp";
 

@@ -17,6 +17,7 @@ import Example from "./pages/Start/Example";
 import NicknamePage from "./pages/Start/NicknamePage";
 import MyPage from "./pages/MyPage/MyPage";
 import LoadingPage from "./pages/Loading/LoadingPage";
+import StampListPage from "./pages/StampList/StampListPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -32,6 +33,7 @@ root.render(
         <Route path="/sealList" element={<SealListPage />} />
         <Route path="/sealDetail" element={<SealDetailPage />} />
         <Route path="/example" element={<Example />} />
+        <Route path="/stampList" element={<StampListPage />} />
         <Route path="/stampDetail" element={<StampDetailPage />} />
         <Route path="/invitation" element={<InvitationPage />} />
         <Route path="/stampMaking" element={<StampMakingPage />} />
