@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -17,7 +18,10 @@ const Pixels = ({
   canDraggable,
   changedColor,
   colorData,
+  stompClientRef,
 }) => {
+  const params = useParams();
+
   let initialColor = colorData[xCoordinate][yCoordinate]; // 나중에 useState로 바꾸기
   const [pixelColor, setPixelColor] = useState(initialColor); // 2차원 배열에서 특정 위치에 해당하는 값을 초기값으로!
 
@@ -52,8 +56,7 @@ const Pixels = ({
   };
 
   // 소켓 통신
-  /*
-  const sendMessage = (messageContent) => {
+  const sendHandler = (accessCookie) => {
     if (!stompClientRef.current || !stompClientRef.current.connected) {
       console.error(
         "WebSocket connection is not established. Please connect first."
@@ -61,18 +64,20 @@ const Pixels = ({
       return;
     }
 
-    const chatRequest = {
+    const canvasRequest = {
       xCoordinate: xCoordinate,
       yCoordinate: yCoordinate,
-      color: pixelColor
+      color: pixelColor,
     };
 
-    stompClientRef.current.publish({
-      destination: `/topic/canvas/${barID}`,
-      body: JSON.stringify(chatRequest), // 헤더도.. 추가 필요해..
-    });
+    stompClientRef.current.send(
+      `/topic/canvas/${params.id}`,
+      {
+        Authorization: `Bearer ${accessCookie}`,
+      },
+      JSON.stringify(canvasRequest) // 헤더도.. 추가 필요해..
+    );
   };
-  */
 
   return (
     <Container

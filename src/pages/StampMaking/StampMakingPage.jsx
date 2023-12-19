@@ -54,7 +54,7 @@ const StampMakingPage = () => {
   // 3-2. 소켓열기
   const stompClientRef = useRef(null);
 
-  const connectToServer = () => {
+  const connectToServer = (accessCookie) => {
     if (stompClientRef.current && stompClientRef.current.connected) {
       console.warn("Already connected!");
       return;
@@ -71,7 +71,9 @@ const StampMakingPage = () => {
     client.onConnect = (frame) => {
       console.log("Connected: " + frame);
       client.subscribe(`/subscribe/canvas/${params.id}`, (messageOutput) => {
-        setChangedColor(JSON.parse(messageOutput.body));
+        setChangedColor(JSON.parse(messageOutput.body), {
+          Authorization: `Bearer ${accessCookie}`,
+        });
       });
     };
 
@@ -107,6 +109,7 @@ const StampMakingPage = () => {
               colorData={colorData}
               timeout={timeout}
               changedColor={changedColor}
+              stompClientRef={stompClientRef}
             />
           )}
         </StyledStampMakingInnerContainer>

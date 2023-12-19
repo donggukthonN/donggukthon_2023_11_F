@@ -34,6 +34,7 @@ const DrawingPanel = ({
   colorData,
   timeout,
   changedColor,
+  stompClientRef,
 }) => {
   const panelRef = useRef();
   const params = useParams();
@@ -83,6 +84,7 @@ const DrawingPanel = ({
         canDraggable={canDraggable}
         changedColor={changedColor}
         colorData={colorData}
+        stompClientRef={stompClientRef}
       />
     );
   }
