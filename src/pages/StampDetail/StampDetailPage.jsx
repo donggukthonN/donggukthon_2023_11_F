@@ -17,7 +17,7 @@ import LikeChecked from "../../assets/icon/like-checked.svg";
 import LikeUnchecked from "../../assets/icon/like-unchecked.svg";
 import SealFrameImg from "../../assets/images/seal-frame.svg";
 import { useEffect, useState } from "react";
-import CustomStamp from "../../components/Stamp/CustomStamp";
+import CustomStamp from "../../components/MyPage/CustomStamp";
 
 const StampDetailPage = () => {
   const [stampData, setStampData] = useState(null);
