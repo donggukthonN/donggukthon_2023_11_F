@@ -39,7 +39,7 @@ const StyledStartCountContainer = styled.div`
   height: 100vh;
   width: 100vw;
   background-color: black;
-  opacity: 0.5;
+  opacity: 0.6;
   font-size: 17px;
   z-index: 100;
 `;

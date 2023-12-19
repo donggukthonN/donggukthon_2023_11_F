@@ -34,7 +34,7 @@ const ChooseColor = ({ selectedColor, onChangeColor }) => {
     //setChooseEraser(true);
   };
 
-  let eraseColor = { hex: "white" }; // 나중에 지우개 버튼 선택 되었을 때 지우게 버튼 색상도 변경되도록 하기!
+  let eraseColor = { hex: "#ffffff" }; // 나중에 지우개 버튼 선택 되었을 때 지우게 버튼 색상도 변경되도록 하기!
   return (
     <Container>
       <CirclePicker color={selectedColor} onChangeComplete={onChangeColor} />
