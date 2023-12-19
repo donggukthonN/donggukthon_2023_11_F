@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import Row from "./Row";
 
@@ -12,10 +12,15 @@ const RowContainer = styled.div`
   border: 1px dotted #9e9e9e;
 `;
 
-const DrawingPanel = ({ width, height, selectedColor }) => {
+const DrawingPanel = ({ width, height, selectedColor, colorData }) => {
   const panelRef = useRef();
 
   const [canDraggable, setCanDraggable] = useState(false);
+  const [changedColor, setChangedColor] = useState({
+    xCoordinate: 1,
+    yCoordinate: 2,
+    color: "black",
+  });
 
   let rows = [];
 
@@ -27,6 +32,8 @@ const DrawingPanel = ({ width, height, selectedColor }) => {
         width={width}
         selectedColor={selectedColor}
         canDraggable={canDraggable}
+        changedColor={changedColor}
+        colorData={colorData}
       />
     );
   }

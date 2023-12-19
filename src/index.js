@@ -21,6 +21,7 @@ import LoadingPage from "./pages/Loading/LoadingPage";
 import { Layout } from "./routes/Layout/Layout";
 import SealMaking from "./pages/SealMaking/SealMaking";
 import SealForU from "./components/SealMaking/SealForU";
+import StampListPage from "./pages/StampList/StampListPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -41,12 +42,13 @@ root.render(
           <Route path="/sealList" element={<SealListPage />} />
           <Route path="/sealDetail" element={<SealDetailPage />} />
           <Route path="/example" element={<Example />} />
+          <Route path="/stampList" element={<StampListPage />} />
           <Route path="/stampDetail" element={<StampDetailPage />} />
           <Route path="/invitation" element={<InvitationPage />} />
-          <Route path="/stampMaking" element={<StampMakingPage />} />
+          <Route path="/stampMaking/:id" element={<StampMakingPage />} />
           <Route path="/loading" element={<LoadingPage />} />
           <Route path="/stampNaming" element={<StampNamingPage />} />
-          <Route path="/stampResult" element={<StampResultPage />} />
+          <Route path="/stampResult/:id" element={<StampResultPage />} />
         </Routes>
       </BrowserRouter>
     </RecoilRoot>
