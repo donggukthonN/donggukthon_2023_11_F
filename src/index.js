@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { RecoilRoot } from "recoil";
 import "./index.css";
 import GlobalStye from "./GlobalStyle";
 import reportWebVitals from "./reportWebVitals";
