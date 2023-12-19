@@ -38,6 +38,9 @@ export const StyledStampDetailHeaderTitle = styled.div`
 `;
 
 export const StyledStampDetailImgWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 10px 30px;
   //width: 100%;
 `;
