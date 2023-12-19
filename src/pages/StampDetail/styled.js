@@ -30,7 +30,7 @@ export const StyledStampDetailHeaderContainer = styled.div`
 export const StyledStampDetailHeaderIcon = styled(IoIosArrowBack)`
   width: 20px;
   height: 20px;
-  padding-right: 10px;
+  margin-right: 10px;
 `;
 
 export const StyledStampDetailHeaderTitle = styled.div`

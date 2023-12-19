@@ -6,7 +6,7 @@ export const StyledMySealListContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #fff6d4;
 `;
 
@@ -14,7 +14,9 @@ export const StyledMySealListInnerContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 20px;
+  margin-bottom: 20px;
   width: 100%;
+  height: 100%;
   max-width: 400px; // 추후 수정!
 `;
 
