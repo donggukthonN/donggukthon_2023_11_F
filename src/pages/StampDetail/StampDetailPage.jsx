@@ -13,46 +13,82 @@ import {
   StyledStampDetailLikeWrapper,
   StyledStampDetailTitleContainer,
 } from "./styled";
-import LikeChecked from "../../assets/images/like-checked.svg";
+import LikeChecked from "../../assets/icon/like-checked.svg";
+import LikeUnchecked from "../../assets/icon/like-unchecked.svg";
 import SealFrameImg from "../../assets/images/seal-frame.svg";
+import { useEffect, useState } from "react";
 
 const StampDetailPage = () => {
+  const [stampData, setStampData] = useState(null);
+
+  useEffect(() => {
+    let result = {
+      nickname: "우표 이름~~",
+      likeCnt: 3,
+      like: false, //true면 채워진하트, false면 빈하트
+      date: "yyyy.mm.dd", //2023.09.03
+      friendList: ["김수진", "박동욱", "이수빈"],
+      ImgUrl: "String", //url
+    };
+    setStampData(result);
+  }, []);
+
+  const onClickLike = (like) => {
+    console.log("좋아요 api: ", like);
+    // 성공하면 새로 고침말고 setStampData로 일부분만 바꾸기!
+    setStampData({ ...stampData, like: !stampData.like });
+  };
+
   return (
     <StyledStampDetailContainer>
-      <StyledStampDetailInnerContainer>
-        <StyledStampDetailHeaderContainer>
-          <StyledStampDetailHeaderIcon />
-          <StyledStampDetailHeaderTitle>
-            우표 게시판
-          </StyledStampDetailHeaderTitle>
-        </StyledStampDetailHeaderContainer>
-        <StyledStampDetailImgWrapper>
-          <img src={SealFrameImg} alt={"씰 사진"} width={"100%"} />
-        </StyledStampDetailImgWrapper>
-        <StyledStampDetailTitleContainer>
-          <div>이름 : 크리스마스~~~</div>
-          <StyledStampDetailLikeWrapper>
-            <img src={LikeChecked} alt={"좋아요 수"} />
-            <div>19</div>
-          </StyledStampDetailLikeWrapper>
-        </StyledStampDetailTitleContainer>
-        <StyledStampDetailContentContainer>
-          <StyledStampDetailContentWrapper>
-            <StyledStampDetailDateIcon />
-            발행일
-          </StyledStampDetailContentWrapper>
-          <StyledStampDetailContentText>
-            2023.12.10
-          </StyledStampDetailContentText>
-          <StyledStampDetailContentWrapper>
-            <StyledStampDetailFriendIcon />
-            함께한 친구
-          </StyledStampDetailContentWrapper>
-          <StyledStampDetailContentText>
-            김수진, 박동욱, 이수빈
-          </StyledStampDetailContentText>
-        </StyledStampDetailContentContainer>
-      </StyledStampDetailInnerContainer>
+      {stampData && stampData !== undefined && (
+        <StyledStampDetailInnerContainer>
+          <StyledStampDetailHeaderContainer>
+            <StyledStampDetailHeaderIcon />
+            <StyledStampDetailHeaderTitle>
+              우표 게시판
+            </StyledStampDetailHeaderTitle>
+          </StyledStampDetailHeaderContainer>
+          <StyledStampDetailImgWrapper>
+            <img src={SealFrameImg} alt={"씰 사진"} width={"100%"} />
+          </StyledStampDetailImgWrapper>
+          <StyledStampDetailTitleContainer>
+            <div>이름 : {stampData.nickname}</div>
+            <StyledStampDetailLikeWrapper
+              onClick={() => onClickLike(stampData.like)}
+            >
+              {stampData.like ? (
+                <img src={LikeChecked} alt={"좋아요 수"} />
+              ) : (
+                <img
+                  src={LikeUnchecked}
+                  alt={"좋아요 수"}
+                  style={{ height: "30px" }}
+                />
+              )}
+              <div>{stampData.likeCnt}</div>
+            </StyledStampDetailLikeWrapper>
+          </StyledStampDetailTitleContainer>
+          <StyledStampDetailContentContainer>
+            <StyledStampDetailContentWrapper>
+              <StyledStampDetailDateIcon />
+              제작일
+            </StyledStampDetailContentWrapper>
+            <StyledStampDetailContentText>
+              {stampData.date}
+            </StyledStampDetailContentText>
+            <StyledStampDetailContentWrapper>
+              <StyledStampDetailFriendIcon />
+              함께한 친구
+            </StyledStampDetailContentWrapper>
+            <StyledStampDetailContentText>
+              {stampData.friendList.length > 0
+                ? stampData.friendList.join(", ")
+                : ""}
+            </StyledStampDetailContentText>
+          </StyledStampDetailContentContainer>
+        </StyledStampDetailInnerContainer>
+      )}
     </StyledStampDetailContainer>
   );
 };

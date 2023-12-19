@@ -24,7 +24,7 @@ const ProgressBar = ({ leftTime }) => {
 export default ProgressBar;
 
 const Container = styled.div`
-  margin: 5px;
+  margin: 5px 20px;
   padding: 20px;
   //border: 1px solid #e5e5e5;
   border-radius: 10px;

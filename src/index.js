@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import GlobalStye from "./GlobalStyle";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import StartPage from "./pages/Start/StartPage";
@@ -12,16 +13,25 @@ import StampNamingPage from "./pages/StampNaming/StampNamingPage";
 import StampMakingPage from "./pages/StampMaking/StampMakingPage";
 import StampDetailPage from "./pages/StampDetail/StampDetailPage";
 import MySealListPage from "./pages/MySealList/MySealListPage";
+import Example from "./pages/Start/Example";
+import NicknamePage from "./pages/Start/NicknamePage";
+import MyPage from "./pages/MyPage/MyPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <GlobalStye />
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<StartPage />} />
+        <Route path="/signin" element={<NicknamePage />} />
+        <Route path="/mypage" element={<MyPage/>}>
+
+        </Route>
         <Route path="/mySealList" element={<MySealListPage />} />
         <Route path="/sealList" element={<SealListPage />} />
         <Route path="/sealDetail" element={<SealDetailPage />} />
+        <Route path="/example" element={<Example />} />
         <Route path="/stampDetail" element={<StampDetailPage />} />
         <Route path="/invitation" element={<InvitationPage />} />
         <Route path="/stampMaking" element={<StampMakingPage />} />

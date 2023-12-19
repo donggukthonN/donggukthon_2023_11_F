@@ -5,7 +5,7 @@ export const StyledSealListContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #fff6d4;
 `;
 
@@ -13,6 +13,7 @@ export const StyledSealListInnerContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 20px;
+  margin-bottom: 20px;
   width: 100%;
   max-width: 400px; // 추후 수정!
 `;
@@ -52,4 +53,12 @@ export const StyledSealListSearchButtonImg = styled(FaSearch)`
   width: 15px;
   height: 15px;
   color: white;
+`;
+
+export const StyledSealListEmptyText = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 10px;
+  //padding-bottom: 10px;
 `;

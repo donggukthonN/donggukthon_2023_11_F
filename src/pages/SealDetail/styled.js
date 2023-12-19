@@ -75,13 +75,14 @@ export const StyledSealDetailContentWrapper = styled.div`
 `;
 
 export const StyledSealDetailDateIcon = styled(BsCalendarDateFill)`
-  padding-right: 10px;
+  margin-right: 10px;
   width: 20px;
   height: 20px;
   color: #992d2d;
+  font-size: 20px;
 `;
 export const StyledSealDetailFriendIcon = styled(FaUserFriends)`
-  padding-right: 10px;
+  margin-right: 10px;
   width: 20px;
   height: 20px;
   color: #992d2d;
@@ -95,7 +96,7 @@ export const StyledSealDetailContentText = styled.p`
 `;
 
 export const StyledSealDetailButton = styled.button`
-  margin: 20px auto;
+  margin: 30px auto;
   padding: 5px 0;
   width: 200px;
   border: none;

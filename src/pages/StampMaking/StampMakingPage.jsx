@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import StartCount from "../../components/StampMaking/StartCount";
 import Timer from "../../components/StampMaking/Timer";
 import {
+  StyledStampMakingButton,
   StyledStampMakingContainer,
   StyledStampMakingInnerContainer,
   StyledStampMakingTitle,
 } from "./styled";
 import ChooseColor from "../../components/StampMaking/ChooseColor";
+import DrawingPanel from "../../components/StampMaking/DrawingPanel";
 
 const StampMakingPage = () => {
   const [selectedColor, setSelectedColor] = useState("#f44336");
@@ -37,6 +39,8 @@ const StampMakingPage = () => {
             selectedColor={selectedColor}
             onChangeColor={onChangeColor}
           />
+          <DrawingPanel width={13} height={13} selectedColor={selectedColor} />
+          <StyledStampMakingButton>완성하기</StyledStampMakingButton>
         </StyledStampMakingInnerContainer>
       </StyledStampMakingContainer>
     </>
