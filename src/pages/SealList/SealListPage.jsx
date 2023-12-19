@@ -10,6 +10,7 @@ import {
 import { useEffect, useState } from "react";
 import { StyledSimpleHeaderContainer } from "../../styles";
 import SealItem from "../../components/SealList/SealItem";
+import { getSealList } from "../../api/seal";
 
 const SealListPage = () => {
   const [search, setSearch] = useState("");
@@ -17,31 +18,40 @@ const SealListPage = () => {
   const [sealListSearchData, setSealListSearchData] = useState(null);
 
   useEffect(() => {
-    let sealList = [
-      {
-        id: 1,
-        sealImg: "String", //url
-        sealName: "씰 이름1",
-        likeCnt: "2",
-        like: true,
-      },
-      {
-        id: 2,
-        sealImg: "String", //url
-        sealName: "씰 이름2",
-        likeCnt: "3",
-        like: false,
-      },
-      {
-        id: 3,
-        sealImg: "String", //url
-        sealName: "씰 이름3",
-        likeCnt: "0",
-        like: false,
-      },
-    ];
-    setSealListData(sealList);
-    setSealListSearchData(sealList);
+    let data = getSealList("accessCookie값 넣기");
+
+    if (data.status === "SUCCESS") {
+      setSealListData(data.result.sealList);
+      setSealListSearchData(data.result.sealList);
+    } else {
+      alert(data.message);
+    }
+
+    // let sealList = [
+    //   {
+    //     id: 1,
+    //     sealImg: "String", //url
+    //     sealName: "씰 이름1",
+    //     likeCnt: "2",
+    //     like: true,
+    //   },
+    //   {
+    //     id: 2,
+    //     sealImg: "String", //url
+    //     sealName: "씰 이름2",
+    //     likeCnt: "3",
+    //     like: false,
+    //   },
+    //   {
+    //     id: 3,
+    //     sealImg: "String", //url
+    //     sealName: "씰 이름3",
+    //     likeCnt: "0",
+    //     like: false,
+    //   },
+    // ];
+    // setSealListData(sealList);
+    // setSealListSearchData(sealList);
   }, []);
 
   const onChangeSearch = (e) => {

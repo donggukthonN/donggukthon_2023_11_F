@@ -17,6 +17,17 @@ import { useRef } from "react";
 const InvitationPage = () => {
   const copyLinkRef = useRef();
 
+  const onClickCopy = () => {
+    copyLinkRef.current.focus();
+    copyLinkRef.current.select();
+
+    navigator.clipboard.writeText(copyLinkRef.current.value).then(() => {
+      alert("링크를 복사했습니다.");
+    });
+  };
+
+  const onClickStart = () => {};
+
   return (
     <StyledInvitationContainer>
       <StyledInvitationTitle>
@@ -38,11 +49,11 @@ const InvitationPage = () => {
           value={"http://localhost:3000"}
           readOnly
         />
-        <StyledInvitationCopyButton>
+        <StyledInvitationCopyButton onClick={onClickCopy}>
           <StyledInvitationCopyIcon />
         </StyledInvitationCopyButton>
       </StyledInvitationLinkContainer>
-      <StyledInvitationFinishButton>
+      <StyledInvitationFinishButton onClick={onClickStart}>
         우표 만들러 가기
       </StyledInvitationFinishButton>
     </StyledInvitationContainer>

@@ -11,6 +11,7 @@ import {
 import { useEffect, useState } from "react";
 import { StyledSimpleHeaderContainer } from "../../styles";
 import StampItem from "../../components/StampList/StampItem";
+import { getStampList } from "../../api/stamp";
 
 const StampListPage = () => {
   const [search, setSearch] = useState("");
@@ -18,31 +19,39 @@ const StampListPage = () => {
   const [stampListSearchData, setStampListSearchData] = useState(null);
 
   useEffect(() => {
-    let stampList = [
-      {
-        id: 1,
-        stampImg: "String", //url
-        stampName: "우표 이름1",
-        likeCnt: "2",
-        like: true,
-      },
-      {
-        id: 2,
-        stampImg: "String", //url
-        stampName: "우표 이름2",
-        likeCnt: "3",
-        like: false,
-      },
-      {
-        id: 3,
-        stampImg: "String", //url
-        stampName: "우표 이름3",
-        likeCnt: "0",
-        like: false,
-      },
-    ];
-    setStampListData(stampList);
-    setStampListSearchData(stampList);
+    let data = getStampList("accessCookie값 넣기");
+
+    if (data.status === "SUCCESS") {
+      setStampListData(data.result.stampList);
+      setStampListSearchData(data.result.stampList);
+    } else {
+      alert(data.message);
+    }
+    // let stampList = [
+    //   {
+    //     id: 1,
+    //     stampImg: "String", //url
+    //     stampName: "우표 이름1",
+    //     likeCnt: "2",
+    //     like: true,
+    //   },
+    //   {
+    //     id: 2,
+    //     stampImg: "String", //url
+    //     stampName: "우표 이름2",
+    //     likeCnt: "3",
+    //     like: false,
+    //   },
+    //   {
+    //     id: 3,
+    //     stampImg: "String", //url
+    //     stampName: "우표 이름3",
+    //     likeCnt: "0",
+    //     like: false,
+    //   },
+    // ];
+    // setStampListData(stampList);
+    // setStampListSearchData(stampList);
   }, []);
 
   const onChangeSearch = (e) => {

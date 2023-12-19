@@ -1,14 +1,17 @@
 import styled from "styled-components";
 import { IoIosCopy } from "react-icons/io";
-
+import background from "../../assets/icon/background.svg";
 export const StyledInvitationContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  background-position: center;
   align-items: center;
-  height: 100vh;
-  font-size: 17px;
-  //background-color: #fff0e3;
+  padding-top: 100px;
+  height: 749px;
+  width: 400px;
+  background-image: url(${background});
+  background-size: cover;
+  font-size: 20px;
 `;
 
 export const StyledInvitationTitle = styled.div`

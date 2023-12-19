@@ -67,3 +67,17 @@ export const StyledMySealListMenuRight = styled.button`
       : `background-color: white;`};
   font-size: 17px;
 `;
+
+export const StyledMySealListEmptyText = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 10px;
+  //padding-bottom: 10px;
+`;
+
+export const StyledMyStampListContent = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  //padding-bottom: 10px;
+`;

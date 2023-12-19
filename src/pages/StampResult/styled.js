@@ -5,7 +5,9 @@ export const StyledStampResultContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100vw;
   height: 100vh;
+  background-color: #fff6d4;
   font-size: 17px;
 `;
 
@@ -20,7 +22,6 @@ export const StyledStampResultStampFrame = styled.img`
 
 export const StyledStampResultTitle = styled.div`
   padding: 5px;
-  color: black;
 `;
 
 export const StyledStampResultTitleRed = styled.span`

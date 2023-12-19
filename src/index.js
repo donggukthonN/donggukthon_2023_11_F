@@ -40,7 +40,7 @@ root.render(
         <Route path="/stampMaking" element={<StampMakingPage />} />
         <Route path="/loading" element={<LoadingPage />} />
         <Route path="/stampNaming" element={<StampNamingPage />} />
-        <Route path="/stampResult" element={<StampResultPage />} />
+        <Route path="/stampResult/:id" element={<StampResultPage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
