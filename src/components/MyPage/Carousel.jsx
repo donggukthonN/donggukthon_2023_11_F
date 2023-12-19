@@ -1,6 +1,6 @@
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import CustomStamp from './CustomStamp';
 import styled from 'styled-components';
 import { CarouselContainer } from './styled';
@@ -19,11 +19,11 @@ const CustomCarousel = () => {
     console.log(images);
     setComponents(images);
   };
-  const renderSlides = components.map((item, index) => (
-    <div key={index}>
-      {item}
-    </div>
-  ));
+  // const renderSlides = components.map((item, index) => (
+  //   <div key={index}>
+  //     {item}
+  //   </div>
+  // ));
 
   return(
     <CarouselContainer>
@@ -80,7 +80,7 @@ const CustomArrow = styled.div`
   cursor: pointer;
   &:hover {
     cursor: pointer;
-    background-color: #7c3aed;
+    background-color: #2D9985;
   }
 `;
 
