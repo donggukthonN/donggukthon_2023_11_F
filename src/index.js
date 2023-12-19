@@ -16,6 +16,7 @@ import MySealListPage from "./pages/MySealList/MySealListPage";
 import Example from "./pages/Start/Example";
 import NicknamePage from "./pages/Start/NicknamePage";
 import MyPage from "./pages/MyPage/MyPage";
+import LoadingPage from "./pages/Loading/LoadingPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -25,9 +26,8 @@ root.render(
       <Routes>
         <Route path="/" element={<StartPage />} />
         <Route path="/signin" element={<NicknamePage />} />
-        <Route path="/mypage" element={<MyPage/>}>
+        <Route path="/mypage" element={<MyPage />} />
 
-        </Route>
         <Route path="/mySealList" element={<MySealListPage />} />
         <Route path="/sealList" element={<SealListPage />} />
         <Route path="/sealDetail" element={<SealDetailPage />} />
@@ -35,6 +35,7 @@ root.render(
         <Route path="/stampDetail" element={<StampDetailPage />} />
         <Route path="/invitation" element={<InvitationPage />} />
         <Route path="/stampMaking" element={<StampMakingPage />} />
+        <Route path="/loading" element={<LoadingPage />} />
         <Route path="/stampNaming" element={<StampNamingPage />} />
         <Route path="/stampResult" element={<StampResultPage />} />
       </Routes>
