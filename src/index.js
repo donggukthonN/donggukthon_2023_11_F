@@ -18,6 +18,9 @@ import Example from "./pages/Start/Example";
 import NicknamePage from "./pages/Start/NicknamePage";
 import MyPage from "./pages/MyPage/MyPage";
 import LoadingPage from "./pages/Loading/LoadingPage";
+import { Layout } from "./routes/Layout/Layout";
+import SealMaking from "./pages/SealMaking/SealMaking";
+import SealForU from "./components/SealMaking/SealForU";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -28,7 +31,12 @@ root.render(
         <Routes>
           <Route path="/" element={<StartPage />} />
           <Route path="/signin" element={<NicknamePage />} />
-          <Route path="/mypage" element={<MyPage />} />
+          <Route path="/mypage" element={<Layout />} >
+            <Route index path="/mypage" element={<MyPage/>} />
+          </Route>
+          <Route path="/sealmaking" element={<SealMaking/>}/>
+          <Route path="/example" element={<SealForU/>} />
+
           <Route path="/mySealList" element={<MySealListPage />} />
           <Route path="/sealList" element={<SealListPage />} />
           <Route path="/sealDetail" element={<SealDetailPage />} />
