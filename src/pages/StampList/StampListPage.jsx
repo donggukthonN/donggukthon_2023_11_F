@@ -1,4 +1,5 @@
 import {
+  Root,
   StyledStampListContainer,
   StyledStampListContent,
   StyledStampListEmptyText,
@@ -27,31 +28,31 @@ const StampListPage = () => {
     } else {
       alert(data.message);
     }
-    // let stampList = [
-    //   {
-    //     id: 1,
-    //     stampImg: "String", //url
-    //     stampName: "우표 이름1",
-    //     likeCnt: "2",
-    //     like: true,
-    //   },
-    //   {
-    //     id: 2,
-    //     stampImg: "String", //url
-    //     stampName: "우표 이름2",
-    //     likeCnt: "3",
-    //     like: false,
-    //   },
-    //   {
-    //     id: 3,
-    //     stampImg: "String", //url
-    //     stampName: "우표 이름3",
-    //     likeCnt: "0",
-    //     like: false,
-    //   },
-    // ];
-    // setStampListData(stampList);
-    // setStampListSearchData(stampList);
+  //   let stampList = [
+  //     {
+  //       id: 1,
+  //       stampImg: "String", //url
+  //       stampName: "우표 이름1",
+  //       likeCnt: "2",
+  //       like: true,
+  //     },
+  //     {
+  //       id: 2,
+  //       stampImg: "String", //url
+  //       stampName: "우표 이름2",
+  //       likeCnt: "3",
+  //       like: false,
+  //     },
+  //     {
+  //       id: 3,
+  //       stampImg: "String", //url
+  //       stampName: "우표 이름3",
+  //       likeCnt: "0",
+  //       like: false,
+  //     },
+  //   ];
+  //   setStampListData(stampList);
+  //   setStampListSearchData(stampList);
   }, []);
 
   const onChangeSearch = (e) => {
@@ -76,36 +77,39 @@ const StampListPage = () => {
   };
 
   return (
-    <StyledStampListContainer>
-      <StyledStampListInnerContainer>
-        <StyledSimpleHeaderContainer>우표 게시판</StyledSimpleHeaderContainer>
-        <StyledStampListSearchWrapper>
-          <StyledStampListSearch
-            type="text"
-            value={search}
-            onChange={onChangeSearch}
-            placeholder="우표 이름을 검색해주세요."
-          />
-          <StyledStampListSearchButton onClick={() => onClickSearch(search)}>
-            <StyledStampListSearchButtonImg />
-          </StyledStampListSearchButton>
-        </StyledStampListSearchWrapper>
-        {stampListSearchData &&
-        stampListSearchData !== undefined &&
-        stampListSearchData.length > 0 ? (
-          <StyledStampListContent>
-            {stampListSearchData.map((item) => (
-              <StampItem key={item.id} stampData={item} />
-            ))}
-          </StyledStampListContent>
-        ) : (
-          <StyledStampListEmptyText>
-            {" "}
-            검색 결과가 없습니다.{" "}
-          </StyledStampListEmptyText>
-        )}
-      </StyledStampListInnerContainer>
-    </StyledStampListContainer>
+    <Root>
+      <StyledStampListContainer>
+        <StyledStampListInnerContainer>
+          <StyledSimpleHeaderContainer>우표 게시판</StyledSimpleHeaderContainer>
+          <StyledStampListSearchWrapper>
+            <StyledStampListSearch
+              type="text"
+              value={search}
+              onChange={onChangeSearch}
+              placeholder="우표 이름을 검색해주세요."
+            />
+            <StyledStampListSearchButton onClick={() => onClickSearch(search)}>
+              <StyledStampListSearchButtonImg />
+            </StyledStampListSearchButton>
+          </StyledStampListSearchWrapper>
+          {stampListSearchData &&
+          stampListSearchData !== undefined &&
+          stampListSearchData.length > 0 ? (
+            <StyledStampListContent>
+              {stampListSearchData.map((item) => (
+                <StampItem key={item.id} stampData={item} />
+              ))}
+            </StyledStampListContent>
+          ) : (
+            <StyledStampListEmptyText>
+              {" "}
+              검색 결과가 없습니다.{" "}
+            </StyledStampListEmptyText>
+          )}
+        </StyledStampListInnerContainer>
+      </StyledStampListContainer>
+    </Root>
+    
   );
 };
 
