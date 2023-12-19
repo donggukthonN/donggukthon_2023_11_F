@@ -1,4 +1,4 @@
-import CustomStamp from "../../components/Stamp/CustomStamp";
+import CustomStamp from "../../components/MyPage/CustomStamp";
 
 const Example = () =>{
   return(
