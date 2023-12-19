@@ -17,6 +17,7 @@ import LikeChecked from "../../assets/icon/like-checked.svg";
 import LikeUnchecked from "../../assets/icon/like-unchecked.svg";
 import SealFrameImg from "../../assets/images/seal-frame.svg";
 import { useEffect, useState } from "react";
+import CustomStamp from "../../components/Stamp/CustomStamp";
 
 const StampDetailPage = () => {
   const [stampData, setStampData] = useState(null);
@@ -50,7 +51,7 @@ const StampDetailPage = () => {
             </StyledStampDetailHeaderTitle>
           </StyledStampDetailHeaderContainer>
           <StyledStampDetailImgWrapper>
-            <img src={SealFrameImg} alt={"씰 사진"} width={"100%"} />
+            <CustomStamp />
           </StyledStampDetailImgWrapper>
           <StyledStampDetailTitleContainer>
             <div>이름 : {stampData.nickname}</div>
