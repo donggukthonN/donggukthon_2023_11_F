@@ -9,7 +9,7 @@ export const Layout = () => {
 
   return(
     <Root>
-      {showMenu && <MenuBar /> }
+      {showMenu && <MenuBar />}
       <Container>
         <Main>
           <Outlet/>
