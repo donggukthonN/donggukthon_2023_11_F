@@ -8,6 +8,9 @@ import sealGroup from '../../assets/icon/seal_group.svg';
 import SealForU from '../../components/SealMaking/SealForU';
 
 const SealMaking = () => {
+  const handleQuit = () => {
+    alert('지금 나가시면 변경사항이 저장되지 않습니다.\n 나가시겠습니까?')
+  }
   return(
     <Root>
       <img src={sealGroup} style={{marginTop: 14}}/>
@@ -16,7 +19,7 @@ const SealMaking = () => {
       <SealContainer>
         <SealForU />
         <ButtonLayer>
-          <Button style={{backgroundColor:'#992D2D'}}>그만두기</Button>
+          <Button style={{backgroundColor:'#992D2D'}} onClick={handleQuit}>그만두기</Button>
           <Button style={{backgroundColor: '#2D9985'}}>완성하기</Button>
         </ButtonLayer>
       </SealContainer>
