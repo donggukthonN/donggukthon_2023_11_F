@@ -26,15 +26,18 @@ const StampDetailPage = () => {
   const navigate = useNavigate();
   const [stampData, setStampData] = useState(null);
 
-  useEffect(() => {
+  const getStampSingleApi = () => {
     const accessCookie = localStorage.getItem("accessCookie");
     let data = getStampSingle(params.id, accessCookie);
     if (data.status === "SUCCESS") {
       setStampData(data.result);
     } else {
-      alert(data.message);
+      data?.message && alert(data.message);
     }
+  };
 
+  useEffect(() => {
+    getStampSingleApi();
     // let result = {
     //   nickname: "우표 이름~~",
     //   likeCnt: 3,
@@ -52,15 +55,16 @@ const StampDetailPage = () => {
     const accessCookie = localStorage.getItem("accessCookie");
     let data = putStampLike(params.id, like, accessCookie);
     if (data.status === "SUCCESS") {
-      setStampData({ ...stampData, like: like });
+      //setStampData({ ...stampData, like: like });
+      getStampSingleApi();
     } else {
-      alert(data.message);
+      data?.message && alert(data.message);
     }
   };
 
   return (
     <StyledStampDetailContainer>
-      {stampData && stampData !== undefined && (
+      {stampData && stampData !== undefined && stampData !== "" && (
         <StyledStampDetailInnerContainer>
           <StyledStampDetailHeaderContainer>
             <StyledStampDetailHeaderIcon onClick={() => navigate(-1)} />

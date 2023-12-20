@@ -22,40 +22,40 @@ const SealListPage = () => {
 
   useEffect(() => {
     const accessCookie = localStorage.getItem("accessCookie");
-    let data = getSealList(accessCookie);
 
+    let data = getSealList(accessCookie);
     if (data.status === "SUCCESS") {
       setSealListData(data.result.sealList);
       setSealListSearchData(data.result.sealList);
     } else {
-      alert(data.message);
+      data?.message && alert(data.message);
     }
 
-    let sealList = [
-      {
-        id: 1,
-        sealImg: "String", //url
-        sealName: "씰 이름1",
-        likeCnt: "2",
-        like: true,
-      },
-      {
-        id: 2,
-        sealImg: "String", //url
-        sealName: "씰 이름2",
-        likeCnt: "3",
-        like: false,
-      },
-      {
-        id: 3,
-        sealImg: "String", //url
-        sealName: "씰 이름3",
-        likeCnt: "0",
-        like: false,
-      },
-    ];
-    setSealListData(sealList);
-    setSealListSearchData(sealList);
+    // let sealList = [
+    //   {
+    //     id: 1,
+    //     sealImg: "String", //url
+    //     sealName: "씰 이름1",
+    //     likeCnt: "2",
+    //     like: true,
+    //   },
+    //   {
+    //     id: 2,
+    //     sealImg: "String", //url
+    //     sealName: "씰 이름2",
+    //     likeCnt: "3",
+    //     like: false,
+    //   },
+    //   {
+    //     id: 3,
+    //     sealImg: "String", //url
+    //     sealName: "씰 이름3",
+    //     likeCnt: "0",
+    //     like: false,
+    //   },
+    // ];
+    // setSealListData(sealList);
+    // setSealListSearchData(sealList);
   }, []);
 
   const onChangeSearch = (e) => {
