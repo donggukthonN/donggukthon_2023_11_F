@@ -13,10 +13,12 @@ import next from '../../assets/icon/next_btn.svg';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getInfo, nameCheck } from '../../api/user';
+import { useLocation } from 'react-router-dom';
 
 const NicknamePage = () => {
   const [name, setName] = useState('');
   const token = localStorage.getItem('accessCookie');
+  const location = useLocation();
 
   useEffect(() => {
     const script = document.createElement('script');
@@ -27,7 +29,7 @@ const NicknamePage = () => {
     return () => {
       document.body.removeChild(script);
     };
-  }, []);
+  }, [location]);
 
   const navigate = useNavigate();
   const nickNamePut = (e) => {

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {
   Container,
   Introduce,
@@ -6,8 +7,10 @@ import {
   SignIn,
 } from './styled';
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const StartPage = () => {
+  const location = useLocation();
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://app.embed.im/snow.js';
@@ -17,10 +20,19 @@ const StartPage = () => {
     return () => {
       document.body.removeChild(script);
     };
-  }, []);
+  }, [location]);
 
-  const kakaoLogin = () => {
-    window.location.href = `https://red-nosed.com/oauth2/authorization/kakao`;
+  const kakaoLogin = async() => {
+    // window.location.href = `https://red-nosed.com/oauth2/authorization/kakao`;
+    try{
+      // window.location.href = `https://red-nosed.com/oauth2/authorization/kakao`;
+      const response = await axios.get(`https://red-nosed.com/oauth2/authorization/kakao`);
+      console.log(response.headers.cookies);
+      return response;
+    }catch(error){
+      console.error(error);
+    }
+    
   };
 
   return (

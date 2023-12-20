@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { TbCookieMan } from "react-icons/tb";
 import { MdCookie } from "react-icons/md";
+import { IoIosArrowBack } from "react-icons/io";
 
 export const StyledMySealListContainer = styled.div`
   display: flex;
@@ -8,6 +9,20 @@ export const StyledMySealListContainer = styled.div`
   width: 100vw;
   min-height: 100vh;
   background-color: #fff6d4;
+`;
+
+export const StyledStampDetailHeaderIcon = styled(IoIosArrowBack)`
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+`;
+
+export const StyledStampDetailHeaderContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px 0;
+  //border-bottom: 3px solid white;
 `;
 
 export const StyledMySealListInnerContainer = styled.div`

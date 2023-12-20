@@ -4,6 +4,8 @@ import {
   StyledMySealListCookie2,
   StyledMySealListEmptyText,
   StyledMySealListInnerContainer,
+  StyledStampDetailHeaderContainer,
+  StyledStampDetailHeaderIcon,
   StyledMySealListMenuLeft,
   StyledMySealListMenuRight,
   StyledMySealListMenuWrapper,
@@ -15,10 +17,12 @@ import { useEffect, useState } from "react";
 import { getSealMyList } from "../../api/seal";
 import { getStampMyList } from "../../api/stamp";
 import StampItem from "../../components/StampList/StampItem";
+import { useNavigate } from "react-router";
 
 const MySealListPage = () => {
   const [selectedMenu, setSelectedMenu] = useState(0); // 0 : 우표, 1 : 씰
   const [listData, setListData] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const accessCookie = localStorage.getItem("accessCookie");
@@ -54,11 +58,14 @@ const MySealListPage = () => {
   return (
     <StyledMySealListContainer>
       <StyledMySealListInnerContainer>
-        <StyledSimpleHeaderContainer>
-          내가 만든 보관함
-          <StyledMySealListCookie1 />
-          <StyledMySealListCookie2 />
-        </StyledSimpleHeaderContainer>
+        <StyledStampDetailHeaderContainer onClick={()=>navigate(-1)}>
+          <StyledStampDetailHeaderIcon />
+          <StyledSimpleHeaderContainer>
+            내가 만든 보관함
+            <StyledMySealListCookie1 />
+            <StyledMySealListCookie2 />
+          </StyledSimpleHeaderContainer>
+        </StyledStampDetailHeaderContainer>
         <StyledMySealListMenuWrapper>
           <StyledMySealListMenuLeft
             onClick={onClickStampList}

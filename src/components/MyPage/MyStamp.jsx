@@ -15,7 +15,7 @@ const MyStamp = () => {
   return(
     <div style={{ height: '100%', alignItems: 'center', display: 'flex', flexDirection: 'column'}}>
       <CustomStamp />
-      <EnterDiv>우표 만들러 가기</EnterDiv>
+      <EnterDiv onClick={()=>navigate('/invitation')}>우표 만들러 가기</EnterDiv>
       <MineStamp>
         <Label>
           <div style={{marginLeft: 20}}>내가 만든 우표</div>

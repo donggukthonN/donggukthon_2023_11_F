@@ -14,14 +14,24 @@ import SantaImg from "../../assets/images/santa-Img.svg";
 import TreeImg from "../../assets/images/tree-Img.svg";
 import { useEffect, useRef, useState } from "react";
 import { getMakeCanvas } from "../../api/user";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const InvitationPage = () => {
   const navigate = useNavigate();
-
+  const location = useLocation();
   const copyLinkRef = useRef();
-
   const [canvasId, setCanvasId] = useState("");
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://app.embed.im/snow.js';
+    script.defer = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, [location]);
 
   useEffect(() => {
     // 3-1 api
