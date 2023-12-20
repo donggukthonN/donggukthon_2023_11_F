@@ -22,13 +22,10 @@ const StartPage = () => {
     };
   }, [location]);
 
-  const kakaoLogin = async() => {
+  const kakaoLogin = () => {
     // window.location.href = `https://red-nosed.com/oauth2/authorization/kakao`;
     try{
-      // window.location.href = `https://red-nosed.com/oauth2/authorization/kakao`;
-      const response = await axios.get(`https://red-nosed.com/oauth2/authorization/kakao`);
-      console.log(response.headers.cookies);
-      return response;
+      window.location.href = `https://red-nosed.com/oauth2/authorization/kakao`;
     }catch(error){
       console.error(error);
     }
