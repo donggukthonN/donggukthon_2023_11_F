@@ -7,7 +7,7 @@ export const Root = styled.div`
   align-items: center;
   width: 400px;
   height: 693px;
-  background-color: #FFF6D4;
+  background-color: #fff6d4;
 `;
 
 export const StyledStampListContainer = styled.div`
@@ -23,6 +23,15 @@ export const StyledStampListInnerContainer = styled.div`
   padding: 0 20px;
   margin-bottom: 20px;
   width: 100%;
+`;
+
+export const StyledStampListHeaderContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #992d2d;
+  margin: 24px 0;
+  font-size: 27px;
 `;
 
 export const StyledStampListSearchWrapper = styled.div`

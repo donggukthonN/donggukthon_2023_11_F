@@ -3,6 +3,7 @@ import {
   StyledStampListContainer,
   StyledStampListContent,
   StyledStampListEmptyText,
+  StyledStampListHeaderContainer,
   StyledStampListInnerContainer,
   StyledStampListSearch,
   StyledStampListSearchButton,
@@ -10,7 +11,6 @@ import {
   StyledStampListSearchWrapper,
 } from "./styled";
 import { useEffect, useState } from "react";
-import { StyledSimpleHeaderContainer } from "../../styles";
 import StampItem from "../../components/StampList/StampItem";
 import { getStampList } from "../../api/stamp";
 import { useNavigate } from "react-router-dom";
@@ -31,31 +31,31 @@ const StampListPage = () => {
     } else {
       alert(data.message);
     }
-    //   let stampList = [
-    //     {
-    //       id: 1,
-    //       stampImg: "String", //url
-    //       stampName: "우표 이름1",
-    //       likeCnt: "2",
-    //       like: true,
-    //     },
-    //     {
-    //       id: 2,
-    //       stampImg: "String", //url
-    //       stampName: "우표 이름2",
-    //       likeCnt: "3",
-    //       like: false,
-    //     },
-    //     {
-    //       id: 3,
-    //       stampImg: "String", //url
-    //       stampName: "우표 이름3",
-    //       likeCnt: "0",
-    //       like: false,
-    //     },
-    //   ];
-    //   setStampListData(stampList);
-    //   setStampListSearchData(stampList);
+    // let stampList = [
+    //   {
+    //     id: 1,
+    //     stampImg: "String", //url
+    //     stampName: "우표 이름1",
+    //     likeCnt: "2",
+    //     like: true,
+    //   },
+    //   {
+    //     id: 2,
+    //     stampImg: "String", //url
+    //     stampName: "우표 이름2",
+    //     likeCnt: "3",
+    //     like: false,
+    //   },
+    //   {
+    //     id: 3,
+    //     stampImg: "String", //url
+    //     stampName: "우표 이름3",
+    //     likeCnt: "0",
+    //     like: false,
+    //   },
+    // ];
+    // setStampListData(stampList);
+    // setStampListSearchData(stampList);
   }, []);
 
   const onChangeSearch = (e) => {
@@ -87,7 +87,9 @@ const StampListPage = () => {
     <Root>
       <StyledStampListContainer>
         <StyledStampListInnerContainer>
-          <StyledSimpleHeaderContainer>우표 게시판</StyledSimpleHeaderContainer>
+          <StyledStampListHeaderContainer>
+            우표 게시판
+          </StyledStampListHeaderContainer>
           <StyledStampListSearchWrapper>
             <StyledStampListSearch
               type="text"

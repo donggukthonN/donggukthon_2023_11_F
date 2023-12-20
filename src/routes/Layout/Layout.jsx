@@ -5,14 +5,14 @@ import styled from "styled-components";
 
 export const Layout = () => {
   const location = useLocation();
-  const showMenu = location.pathname.includes('/mypage');
+  const showMenu = location.pathname.includes("/mypage");
 
-  return(
+  return (
     <Root>
       {showMenu && <MenuBar />}
       <Container>
         <Main>
-          <Outlet/>
+          <Outlet />
         </Main>
       </Container>
     </Root>
@@ -21,7 +21,9 @@ export const Layout = () => {
 
 const Root = styled.div`
   width: 100%;
-  max-height: 749px;
+  //max-height: 749px;
+  height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,12 +31,19 @@ const Root = styled.div`
 `;
 const Container = styled.div`
   max-width: 400px;
-  width: 100%;
+  min-width: 100vw;
   display: flex;
   flex-direction: column;
   margin-top: 56px;
+  background-color: #fff6d4;
 `;
 
 const Main = styled.main`
-  background-color: #44403C;
+  //background-color: #44403c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  height: 100%;
+  background-color: #fff6d4;
 `;

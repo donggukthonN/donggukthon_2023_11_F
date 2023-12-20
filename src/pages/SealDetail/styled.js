@@ -22,14 +22,14 @@ export const StyledSealDetailInnerContainer = styled.div`
 export const StyledSealDetailHeaderContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin: 10px;
   padding: 10px 0;
+  font-size: 20px;
   //border-bottom: 3px solid white;
 `;
 
 export const StyledSealDetailHeaderIcon = styled(IoIosArrowBack)`
-  width: 20px;
-  height: 20px;
+  font-size: 30px;
   padding-right: 10px;
 `;
 

@@ -3,7 +3,6 @@ import styled from "styled-components";
 import Row from "./Row";
 import { getCheckRoomMaker } from "../../api/canvas";
 import { useNavigate, useParams } from "react-router-dom";
-import html2canvas from "html2canvas";
 
 const Container = styled.div`
   display: flex;
@@ -52,13 +51,13 @@ const DrawingPanel = ({
     // 사진 캡쳐해서 저장
     if (!panelRef.current) return;
 
-    try {
-      const div = panelRef.current;
-      const canvas = await html2canvas(div, { scale: 2 });
-      // 이거 canvas를 저장하기 recoil에다가!
-    } catch (error) {
-      console.error("Error converting div to image:", error);
-    }
+    // try {
+    //   const div = panelRef.current;
+    //   const canvas = await html2canvas(div, { scale: 2 }); // base64로 보내
+    //   // 이거 canvas를 저장하기 recoil에다가!
+    // } catch (error) {
+    //   console.error("Error converting div to image:", error);
+    // }
     const accessCookie = localStorage.getItem("accessCookie");
     let data = getCheckRoomMaker(params.id, accessCookie);
     if (data.status === "SUCCESS") {

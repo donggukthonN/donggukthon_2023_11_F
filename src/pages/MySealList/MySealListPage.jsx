@@ -55,12 +55,20 @@ const MySealListPage = () => {
     }
   };
 
+  const onClickShowStampDetail = (id) => {
+    navigate(`/stampDetail/${id}`);
+  };
+
+  const onClickShowSealDetail = (id) => {
+    navigate(`/sealDetail/${id}`);
+  };
+
   return (
     <StyledMySealListContainer>
       <StyledMySealListInnerContainer>
-        <StyledStampDetailHeaderContainer onClick={()=>navigate(-1)}>
+        <StyledStampDetailHeaderContainer onClick={() => navigate(-1)}>
           <StyledStampDetailHeaderIcon />
-          <StyledSimpleHeaderContainer>
+          <StyledSimpleHeaderContainer style={{ alignItems: "center" }}>
             내가 만든 보관함
             <StyledMySealListCookie1 />
             <StyledMySealListCookie2 />
@@ -84,7 +92,11 @@ const MySealListPage = () => {
           listData && listData !== undefined && listData.length > 0 ? (
             <StyledMyStampListContent>
               {listData.map((item) => (
-                <StampItem key={item.id} stampData={item} />
+                <StampItem
+                  key={item.id}
+                  stampData={item}
+                  onClick={() => onClickShowStampDetail(item.id)}
+                />
               ))}
             </StyledMyStampListContent>
           ) : (
@@ -93,7 +105,13 @@ const MySealListPage = () => {
             </StyledMySealListEmptyText>
           )
         ) : listData && listData !== undefined && listData.length > 0 ? (
-          listData.map((item) => <SealItem key={item.id} sealData={item} />)
+          listData.map((item) => (
+            <SealItem
+              key={item.id}
+              sealData={item}
+              onClick={() => onClickShowSealDetail(item.id)}
+            />
+          ))
         ) : (
           <StyledMySealListEmptyText>
             씰 보관함이 비어있습니다.

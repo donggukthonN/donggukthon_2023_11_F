@@ -1,15 +1,18 @@
 import { stampInstance } from "./instance";
 
-const APIconstant = '/api/v1/stamp';
+const APIconstant = "/api/v1/stamp";
 
 // 2-2
 export const getStampSingle = async (stampId, accessCookie) => {
   try {
-    const { data } = await stampInstance.get(`${APIconstant}/${stampId}/details`, {
-      headers: {
-        Authorization: `Bearer ${accessCookie}`,
-      },
-    });
+    const { data } = await stampInstance.get(
+      `${APIconstant}/${stampId}/details`,
+      {
+        headers: {
+          Authorization: `Bearer ${accessCookie}`,
+        },
+      }
+    );
     return data;
   } catch (error) {
     console.log(error);
@@ -31,13 +34,15 @@ export const getStampMyList = async (accessCookie) => {
 };
 
 // 3-5
-export const postNewStamp = async (formData, accessCookie) => {
+export const postNewStamp = async (stampName, accessCookie) => {
   try {
     const { data } = await stampInstance.post(`${APIconstant}/new-stamp`, {
       headers: {
         Authorization: `Bearer ${accessCookie}`,
       },
-      formData,
+      data: {
+        stampName: stampName,
+      },
     });
     return data;
   } catch (error) {
@@ -48,11 +53,14 @@ export const postNewStamp = async (formData, accessCookie) => {
 // 3-6
 export const getStampInfo = async (stampId, accessCookie) => {
   try {
-    const { data } = await stampInstance.get(`${APIconstant}/${stampId}/stamp-info`, {
-      headers: {
-        Authorization: `Bearer ${accessCookie}`,
-      },
-    });
+    const { data } = await stampInstance.get(
+      `${APIconstant}/${stampId}/stamp-info`,
+      {
+        headers: {
+          Authorization: `Bearer ${accessCookie}`,
+        },
+      }
+    );
     return data;
   } catch (error) {
     console.log(error);

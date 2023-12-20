@@ -22,14 +22,14 @@ export const StyledStampDetailInnerContainer = styled.div`
 export const StyledStampDetailHeaderContainer = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin: 10px;
   padding: 10px 0;
+  font-size: 20px;
   //border-bottom: 3px solid white;
 `;
 
 export const StyledStampDetailHeaderIcon = styled(IoIosArrowBack)`
-  width: 20px;
-  height: 20px;
+  font-size: 30px;
   margin-right: 10px;
 `;
 

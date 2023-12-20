@@ -18,11 +18,12 @@ import LikeUnchecked from "../../assets/icon/like-unchecked.svg";
 import SealFrameImg from "../../assets/images/seal-frame.svg";
 import { useEffect, useState } from "react";
 import { getSealSingle, putSealLike } from "../../api/seal";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const SealDetailPage = () => {
   // params로 받기!
   const params = useParams();
+  const navigate = useNavigate();
   const [sealData, setSealData] = useState(null);
 
   useEffect(() => {
@@ -58,7 +59,7 @@ const SealDetailPage = () => {
   };
 
   const onClickOrder = () => {
-    console.log("주문 페이지로 이동하기!");
+    navigate("/order");
   };
 
   return (
@@ -66,7 +67,7 @@ const SealDetailPage = () => {
       {sealData && sealData !== undefined && (
         <StyledSealDetailInnerContainer>
           <StyledSealDetailHeaderContainer>
-            <StyledSealDetailHeaderIcon />
+            <StyledSealDetailHeaderIcon onClick={() => navigate(-1)} />
             <StyledSealDetailHeaderTitle>씰 게시판</StyledSealDetailHeaderTitle>
           </StyledSealDetailHeaderContainer>
           <StyledSealDetailImgWrapper>
