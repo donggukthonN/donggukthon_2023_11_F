@@ -40,12 +40,22 @@ const SealForStamp = () => {
   
   }, []);
 
+  const selectFunc = (item) => {
+    setSelectedItem({
+      id: item?.id,
+      stampImg: item?.stampImg,
+      stampName: item?.stampName,
+      likeCnt: item?.likeCnt,
+      like: item?.like
+    });
+  };
+
   return(
     <StyledStampListContainer>
       <StyledStampListInnerContainer>
         <StyledStampListContent>
           {stampListData?.map((item) => (
-            <div key={item.id} onClick={()=>setSelectedItem(item.id)}>
+            <div key={item.id} onClick={()=>selectFunc(item)}>
               <StampItem stampData={item} />
             </div>
           ))}

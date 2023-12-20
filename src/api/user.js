@@ -2,9 +2,6 @@ import { userInstance } from "./instance";
 
 const APIconstant = `/api/v1/user`;
 
-// const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBY2Nlc3NUb2tlbiIsImV4cCI6MTcwMzYyMDM2OSwidXNlckNsaWVudElkIjoidGVzdDJDbGllbnRJZCJ9.wkFJzho5UcBRqO19WAlbxkizZz_Z_UY-NuiHczSQheFceqiiWIxP6idtavT-ceeq5Z0GCHdaoChgpazPv2B_Vg';
-export const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBY2Nlc3NUb2tlbiIsImV4cCI6MTcwMzYyMDM2OSwidXNlckNsaWVudElkIjoidGVzdDFDbGllbnRJZCJ9.u3Ifl_t5-JGVw3JQ_40ww-M2RUvoUSM4HcxrlqCnPKtPsm792Nw5FuLzGnsvqLjb4SpOYVj_vqVYsOKMuUGBOg';
-
 // 3-1
 export const getMakeCanvas = async (accessCookie) => {
   try {
@@ -22,13 +19,12 @@ export const getMakeCanvas = async (accessCookie) => {
 // 1-1
 export const nameCheck = async (accessCookie, nickname) => {
   try{
-    // console.log(nickname);
-    console.log(token);
+    console.log(accessCookie);
     const {data} = await userInstance.post(`${APIconstant}/check-nickname`,
     {nickname : nickname},
     { headers: {
       // Authorization: `Bearer ${accessCookie}`,
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${accessCookie}`,
     }});
     console.log(data);
     return data;

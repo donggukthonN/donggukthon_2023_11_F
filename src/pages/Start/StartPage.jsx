@@ -23,7 +23,6 @@ const StartPage = () => {
   }, [location]);
 
   const kakaoLogin = () => {
-    // window.location.href = `https://red-nosed.com/oauth2/authorization/kakao`;
     try{
       window.location.href = `https://red-nosed.com/oauth2/authorization/kakao`;
     }catch(error){
