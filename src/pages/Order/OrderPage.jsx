@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import background from '../../assets/icon/background.svg';
-import exampleSeal from '../../assets/icon/example_seal.svg';
+import exampleSeal from '../../assets/images/seal-frame.svg'
 
 const OrderPage = () => {
   return(
