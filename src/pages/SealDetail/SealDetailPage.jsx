@@ -18,14 +18,16 @@ import LikeUnchecked from "../../assets/icon/like-unchecked.svg";
 import SealFrameImg from "../../assets/images/seal-frame.svg";
 import { useEffect, useState } from "react";
 import { getSealSingle, putSealLike } from "../../api/seal";
+import { useParams } from "react-router-dom";
 
-const SealDetailPage = ({ sealId }) => {
+const SealDetailPage = () => {
   // params로 받기!
+  const params = useParams();
   const [sealData, setSealData] = useState(null);
 
   useEffect(() => {
     const accessCookie = localStorage.getItem("accessCookie");
-    let data = getSealSingle(sealId, accessCookie);
+    let data = getSealSingle(params.id, accessCookie);
     if (data.status === "SUCCESS") {
       setSealData(data.result);
     } else {
@@ -41,13 +43,13 @@ const SealDetailPage = ({ sealId }) => {
     //   ImgUrl: "String", //url
     // };
     // setSealData(result);
-  }, [sealId]);
+  }, [params.id]);
 
   const onClickLike = (like) => {
     // console.log("좋아요 api: ", like);
     // 성공하면 새로 고침말고 setSealData로 일부분만 바꾸기!
     const accessCookie = localStorage.getItem("accessCookie");
-    let data = putSealLike(sealId, like, accessCookie);
+    let data = putSealLike(params.id, like, accessCookie);
     if (data.status === "SUCCESS") {
       setSealData({ ...sealData, like: like });
     } else {
