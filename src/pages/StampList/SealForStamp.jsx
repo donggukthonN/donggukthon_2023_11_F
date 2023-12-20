@@ -1,18 +1,15 @@
-import{ 
+import {
   StyledStampListContainer,
   StyledStampListContent,
   StyledStampListInnerContainer,
-} from './styled';
+} from "./styled";
 import { useEffect, useState } from "react";
 import StampItem from "../../components/StampList/StampItem";
-import { useRecoilState } from 'recoil';
-import { selectState } from '../../stores/select-state';
 
 const SealForStamp = () => {
   const [stampListData, setStampListData] = useState(null);
-  const [selectItem, setSelectedItem] = useRecoilState(selectState);
 
-  useEffect(()=>{
+  useEffect(() => {
     let stampList = [
       {
         id: 1,
@@ -37,25 +34,14 @@ const SealForStamp = () => {
       },
     ];
     setStampListData(stampList);
-  
   }, []);
 
-  const selectFunc = (item) => {
-    setSelectedItem({
-      id: item?.id,
-      stampImg: item?.stampImg,
-      stampName: item?.stampName,
-      likeCnt: item?.likeCnt,
-      like: item?.like
-    });
-  };
-
-  return(
+  return (
     <StyledStampListContainer>
       <StyledStampListInnerContainer>
         <StyledStampListContent>
           {stampListData?.map((item) => (
-            <div key={item.id} onClick={()=>selectFunc(item)}>
+            <div key={item.id}>
               <StampItem stampData={item} />
             </div>
           ))}
