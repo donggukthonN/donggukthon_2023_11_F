@@ -28,6 +28,9 @@ jobs:
 
       - name: Build
         run: yarn build
+        env:
+          CI: false
+
 
       - name: Docker build & push to hub
         run: |
