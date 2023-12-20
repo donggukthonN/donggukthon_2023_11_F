@@ -5,10 +5,10 @@ RUN yarn install --frozen-lockfile
 COPY . .
 RUN yarn build
 
-RUN sed -i '/<head>/a <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />' /app/dist/index.html
+# RUN sed -i '/<head>/a <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />' /app/dist/index.html
 
 FROM nginx:stable-alpine AS production
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY --from=builder /app/build /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 CMD ["nginx", "-g", "daemon off;"]
