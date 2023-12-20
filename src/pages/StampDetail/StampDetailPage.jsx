@@ -18,11 +18,12 @@ import LikeUnchecked from "../../assets/icon/like-unchecked.svg";
 import { useEffect, useState } from "react";
 import { getStampSingle, putStampLike } from "../../api/stamp";
 import StampImg from "../../components/StampList/StampImg";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const StampDetailPage = () => {
   // param으로 받기
   const params = useParams();
+  const navigate = useNavigate();
   const [stampData, setStampData] = useState(null);
 
   useEffect(() => {
@@ -34,15 +35,15 @@ const StampDetailPage = () => {
       alert(data.message);
     }
 
-    let result = {
-      nickname: "우표 이름~~",
-      likeCnt: 3,
-      like: false, //true면 채워진하트, false면 빈하트
-      date: "yyyy.mm.dd", //2023.09.03
-      friendList: ["김수진", "박동욱", "이수빈"],
-      ImgUrl: "String", //url
-    };
-    setStampData(result);
+    // let result = {
+    //   nickname: "우표 이름~~",
+    //   likeCnt: 3,
+    //   like: false, //true면 채워진하트, false면 빈하트
+    //   date: "yyyy.mm.dd", //2023.09.03
+    //   friendList: ["김수진", "박동욱", "이수빈"],
+    //   ImgUrl: "String", //url
+    // };
+    // setStampData(result);
   }, [params.id]);
 
   const onClickLike = (like) => {
@@ -62,7 +63,7 @@ const StampDetailPage = () => {
       {stampData && stampData !== undefined && (
         <StyledStampDetailInnerContainer>
           <StyledStampDetailHeaderContainer>
-            <StyledStampDetailHeaderIcon />
+            <StyledStampDetailHeaderIcon onClick={() => navigate(-1)} />
             <StyledStampDetailHeaderTitle>
               우표 게시판
             </StyledStampDetailHeaderTitle>

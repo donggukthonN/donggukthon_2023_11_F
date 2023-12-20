@@ -4,15 +4,15 @@ import {
   StyledStampResultContainer,
   StyledStampResultTitleRed,
   StyledStampResultStampWrapper,
-  StyledStampResultStampFrame,
 } from "./styled";
-import StampFrame from "../../assets/images/stamp-frame.svg";
 import { useEffect, useState } from "react";
 import { getStampInfo } from "../../api/stamp";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import StampImg from "../../components/StampList/StampImg";
 
 const StampResultPage = () => {
   const params = useParams();
+  const navigate = useNavigate();
 
   const [stampData, setStampData] = useState(null);
 
@@ -31,7 +31,7 @@ const StampResultPage = () => {
       {stampData && stampData !== undefined && (
         <>
           <StyledStampResultStampWrapper>
-            <StyledStampResultStampFrame src={StampFrame} alt={"완성된 씰"} />
+            <StampImg />
           </StyledStampResultStampWrapper>
           <StyledStampResultTitle>
             <StyledStampResultTitleRed>
@@ -42,7 +42,9 @@ const StampResultPage = () => {
           <StyledStampResultTitle>
             우표 게시판에 등록되었습니다!
           </StyledStampResultTitle>
-          <StyledStampResultButton>
+          <StyledStampResultButton
+            onClick={() => navigate("/mypage/stampList")}
+          >
             저장된 우표 보러가기
           </StyledStampResultButton>
         </>

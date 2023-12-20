@@ -6,8 +6,9 @@ export const Root = styled.div`
   flex-direction: column;
   align-items: center;
   width: 400px;
-  height: 693px;
-  background-color: #FFF6D4;
+  /* height: 693px; */
+  height: 100%;
+  background-color: #fff6d4;
 `;
 
 export const StyledSealListContainer = styled.div`
@@ -26,6 +27,15 @@ export const StyledSealListInnerContainer = styled.div`
   margin-bottom: 20px;
   width: 100%;
   max-width: 400px; // 추후 수정!
+`;
+
+export const StyledSealListHeaderContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #992d2d;
+  margin: 24px 0;
+  font-size: 27px;
 `;
 
 export const StyledSealListSearchWrapper = styled.div`

@@ -2,6 +2,7 @@ import {
   Root,
   StyledSealListContainer,
   StyledSealListEmptyText,
+  StyledSealListHeaderContainer,
   StyledSealListInnerContainer,
   StyledSealListSearch,
   StyledSealListSearchButton,
@@ -9,7 +10,6 @@ import {
   StyledSealListSearchWrapper,
 } from "./styled";
 import { useEffect, useState } from "react";
-import { StyledSimpleHeaderContainer } from "../../styles";
 import SealItem from "../../components/SealList/SealItem";
 import { getSealList } from "../../api/seal";
 import { useNavigate } from "react-router-dom";
@@ -31,31 +31,31 @@ const SealListPage = () => {
       alert(data.message);
     }
 
-    // let sealList = [
-    //   {
-    //     id: 1,
-    //     sealImg: "String", //url
-    //     sealName: "씰 이름1",
-    //     likeCnt: "2",
-    //     like: true,
-    //   },
-    //   {
-    //     id: 2,
-    //     sealImg: "String", //url
-    //     sealName: "씰 이름2",
-    //     likeCnt: "3",
-    //     like: false,
-    //   },
-    //   {
-    //     id: 3,
-    //     sealImg: "String", //url
-    //     sealName: "씰 이름3",
-    //     likeCnt: "0",
-    //     like: false,
-    //   },
-    // ];
-    // setSealListData(sealList);
-    // setSealListSearchData(sealList);
+    let sealList = [
+      {
+        id: 1,
+        sealImg: "String", //url
+        sealName: "씰 이름1",
+        likeCnt: "2",
+        like: true,
+      },
+      {
+        id: 2,
+        sealImg: "String", //url
+        sealName: "씰 이름2",
+        likeCnt: "3",
+        like: false,
+      },
+      {
+        id: 3,
+        sealImg: "String", //url
+        sealName: "씰 이름3",
+        likeCnt: "0",
+        like: false,
+      },
+    ];
+    setSealListData(sealList);
+    setSealListSearchData(sealList);
   }, []);
 
   const onChangeSearch = (e) => {
@@ -87,7 +87,9 @@ const SealListPage = () => {
     <Root>
       <StyledSealListContainer>
         <StyledSealListInnerContainer>
-          <StyledSimpleHeaderContainer>씰 게시판</StyledSimpleHeaderContainer>
+          <StyledSealListHeaderContainer>
+            씰 게시판
+          </StyledSealListHeaderContainer>
           <StyledSealListSearchWrapper>
             <StyledSealListSearch
               type="text"
