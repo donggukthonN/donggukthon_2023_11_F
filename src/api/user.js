@@ -34,7 +34,7 @@ export const nameCheck = async (accessCookie, nickname) => {
 }
 
 // 1-2
-export const getInfo = async (accessCookie, nickname) => {
+export const getInfo = async (token, nickname) => {
   try{
     const { data } = await userInstance.post(`${APIconstant}/more-info`, 
       nickname,
