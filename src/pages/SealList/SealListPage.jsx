@@ -12,8 +12,10 @@ import { useEffect, useState } from "react";
 import { StyledSimpleHeaderContainer } from "../../styles";
 import SealItem from "../../components/SealList/SealItem";
 import { getSealList } from "../../api/seal";
+import { useNavigate } from "react-router-dom";
 
 const SealListPage = () => {
+  const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [sealListData, setSealListData] = useState(null);
   const [sealListSearchData, setSealListSearchData] = useState(null);
@@ -77,6 +79,10 @@ const SealListPage = () => {
     }
   };
 
+  const onClickShowDetail = (id) => {
+    navigate(`/sealDetail/${id}`);
+  };
+
   return (
     <Root>
       <StyledSealListContainer>
@@ -97,7 +103,11 @@ const SealListPage = () => {
           sealListSearchData !== undefined &&
           sealListSearchData.length > 0 ? (
             sealListSearchData.map((item) => (
-              <SealItem key={item.id} sealData={item} />
+              <SealItem
+                key={item.id}
+                sealData={item}
+                onClick={() => onClickShowDetail(item.id)}
+              />
             ))
           ) : (
             <StyledSealListEmptyText>

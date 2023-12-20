@@ -18,14 +18,16 @@ import LikeUnchecked from "../../assets/icon/like-unchecked.svg";
 import { useEffect, useState } from "react";
 import { getStampSingle, putStampLike } from "../../api/stamp";
 import StampImg from "../../components/StampList/StampImg";
+import { useParams } from "react-router-dom";
 
-const StampDetailPage = ({ stampId }) => {
+const StampDetailPage = () => {
   // param으로 받기
+  const params = useParams();
   const [stampData, setStampData] = useState(null);
 
   useEffect(() => {
     const accessCookie = localStorage.getItem("accessCookie");
-    let data = getStampSingle(stampId, accessCookie);
+    let data = getStampSingle(params.id, accessCookie);
     if (data.status === "SUCCESS") {
       setStampData(data.result);
     } else {
@@ -41,13 +43,13 @@ const StampDetailPage = ({ stampId }) => {
       ImgUrl: "String", //url
     };
     setStampData(result);
-  }, [stampId]);
+  }, [params.id]);
 
   const onClickLike = (like) => {
     //console.log("좋아요 api: ", like);
     // 성공하면 새로 고침말고 setStampData로 일부분만 바꾸기!
     const accessCookie = localStorage.getItem("accessCookie");
-    let data = putStampLike(stampId, like, accessCookie);
+    let data = putStampLike(params.id, like, accessCookie);
     if (data.status === "SUCCESS") {
       setStampData({ ...stampData, like: like });
     } else {
