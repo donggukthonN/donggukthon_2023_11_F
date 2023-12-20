@@ -10,18 +10,37 @@ import {
 import santa from '../../assets/icon/santa.svg';
 import christmas from '../../assets/icon/christmas.svg';
 import next from '../../assets/icon/next_btn.svg';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getInfo } from '../../api/user';
+import { getInfo, nameCheck } from '../../api/user';
 
 const NicknamePage = () => {
   const [name, setName] = useState('');
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://app.embed.im/snow.js';
+    script.defer = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   const navigate = useNavigate();
   const nickNamePut = (e) => {
     setName(e.target.value);
   };
+  const checkBtn = () => {
+    let data = {
+      nickname: name
+    };
+    // console.log(name);
+    nameCheck(name);
+  }
   const nextBtn = () => {
-    
+    getInfo({nickname: name});
     navigate('/mypage');
   };
 
@@ -37,7 +56,7 @@ const NicknamePage = () => {
       </Info>
       <CheckBox>
         <InputBox placeholder='예) 김동국' onChange={nickNamePut}></InputBox>
-        <CheckButton>중복확인</CheckButton>
+        <CheckButton onClick={checkBtn}>중복확인</CheckButton>
       </CheckBox>
       <SubmitBtn onClick={nextBtn}>둘러보기 <img src={next} style={{marginLeft: 10}}/></SubmitBtn>
     </Container>
