@@ -26,7 +26,7 @@ const SealDetailPage = () => {
   const navigate = useNavigate();
   const [sealData, setSealData] = useState(null);
 
-  useEffect(() => {
+  const getSealSingleApi = () => {
     const accessCookie = localStorage.getItem("accessCookie");
     let data = getSealSingle(params.id, accessCookie);
     if (data.status === "SUCCESS") {
@@ -34,16 +34,19 @@ const SealDetailPage = () => {
     } else {
       alert(data.message);
     }
+  };
 
-    // let result = {
-    //   nickname: "우표 이름~~",
-    //   likeCnt: 3,
-    //   like: false, //true면 채워진하트, false면 빈하트
-    //   date: "yyyy.mm.dd", //2023.09.03
-    //   maker: "김수진",
-    //   ImgUrl: "String", //url
-    // };
-    // setSealData(result);
+  useEffect(() => {
+    getSealSingleApi();
+    let result = {
+      nickname: "우표 이름~~",
+      likeCnt: 3,
+      like: false, //true면 채워진하트, false면 빈하트
+      date: "yyyy.mm.dd", //2023.09.03
+      maker: "김수진",
+      ImgUrl: "String", //url
+    };
+    setSealData(result);
   }, [params.id]);
 
   const onClickLike = (like) => {
@@ -52,9 +55,10 @@ const SealDetailPage = () => {
     const accessCookie = localStorage.getItem("accessCookie");
     let data = putSealLike(params.id, like, accessCookie);
     if (data.status === "SUCCESS") {
-      setSealData({ ...sealData, like: like });
+      //setSealData({ ...sealData, like: like });
+      getSealSingleApi();
     } else {
-      alert(data.message);
+      data?.message && alert(data.message);
     }
   };
 
@@ -71,7 +75,7 @@ const SealDetailPage = () => {
             <StyledSealDetailHeaderTitle>씰 게시판</StyledSealDetailHeaderTitle>
           </StyledSealDetailHeaderContainer>
           <StyledSealDetailImgWrapper>
-            <img src={SealFrameImg} alt={"씰 사진"} width={"100%"} />
+            <img src={SealFrameImg} alt={"씰 사진"} width={"200px"} />
           </StyledSealDetailImgWrapper>
           <StyledSealDetailTitleContainer>
             <div>이름 : {sealData.nickname}</div>

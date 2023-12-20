@@ -29,7 +29,7 @@ const StampListPage = () => {
       setStampListData(data.result.stampList);
       setStampListSearchData(data.result.stampList);
     } else {
-      alert(data.message);
+      data?.message && alert(data.message);
     }
     // let stampList = [
     //   {

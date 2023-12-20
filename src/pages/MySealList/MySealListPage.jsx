@@ -32,14 +32,14 @@ const MySealListPage = () => {
       if (data.status === "SUCCESS") {
         setListData(data.result.stampList);
       } else {
-        alert(data.message);
+        data?.message && alert(data.message);
       }
     } else {
       let data = getSealMyList(accessCookie);
       if (data.status === "SUCCESS") {
         setListData(data.result.sealList);
       } else {
-        alert(data.message);
+        data?.message && alert(data.message);
       }
     }
   }, [selectedMenu]);
