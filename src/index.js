@@ -49,9 +49,9 @@ root.render(
 
           <Route path="/mySealList" element={<MySealListPage />} />
           {/* <Route path="/sealList" element={<SealListPage />} /> */}
-          <Route path="/sealDetail" element={<SealDetailPage />} />
+          <Route path="/sealDetail/:id" element={<SealDetailPage />} />
           {/* <Route path="/stampList" element={<StampListPage />} /> */}
-          <Route path="/stampDetail" element={<StampDetailPage />} />
+          <Route path="/stampDetail/:id" element={<StampDetailPage />} />
           <Route path="/invitation" element={<InvitationPage />} />
           <Route path="/stampMaking/:id" element={<StampMakingPage />} />
           <Route path="/loading/:id" element={<LoadingPage />} />

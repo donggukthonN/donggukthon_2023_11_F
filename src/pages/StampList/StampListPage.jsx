@@ -13,8 +13,10 @@ import { useEffect, useState } from "react";
 import { StyledSimpleHeaderContainer } from "../../styles";
 import StampItem from "../../components/StampList/StampItem";
 import { getStampList } from "../../api/stamp";
+import { useNavigate } from "react-router-dom";
 
 const StampListPage = () => {
+  const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const [stampListData, setStampListData] = useState(null);
   const [stampListSearchData, setStampListSearchData] = useState(null);
@@ -77,6 +79,10 @@ const StampListPage = () => {
     }
   };
 
+  const onClickShowDetail = (id) => {
+    navigate(`/stampDetail/${id}`);
+  };
+
   return (
     <Root>
       <StyledStampListContainer>
@@ -98,7 +104,11 @@ const StampListPage = () => {
           stampListSearchData.length > 0 ? (
             <StyledStampListContent>
               {stampListSearchData.map((item) => (
-                <StampItem key={item.id} stampData={item} />
+                <StampItem
+                  key={item.id}
+                  stampData={item}
+                  onClick={() => onClickShowDetail(item.id)}
+                />
               ))}
             </StyledStampListContent>
           ) : (
