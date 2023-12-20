@@ -16,6 +16,7 @@ import { getInfo, nameCheck } from '../../api/user';
 
 const NicknamePage = () => {
   const [name, setName] = useState('');
+  const token = localStorage.getItem('accessCookie');
 
   useEffect(() => {
     const script = document.createElement('script');
@@ -37,7 +38,7 @@ const NicknamePage = () => {
       nickname: name
     };
     // console.log(name);
-    nameCheck(name);
+    nameCheck(token, name);
   }
   const nextBtn = () => {
     getInfo({nickname: name});

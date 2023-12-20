@@ -18,13 +18,14 @@ export const getMakeCanvas = async (accessCookie) => {
 };
 
 // 1-1
-export const nameCheck = async nickname => {
+export const nameCheck = async (accessCookie, nickname) => {
   try{
+    // console.log(nickname);
     const {data} = await userInstance.post(`/check-nickname`,
     {nickname : nickname},
     { headers: {
       // Authorization: `Bearer ${accessCookie}`,
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${accessCookie}`,
     }});
     console.log(data);
     return data;
