@@ -1,4 +1,3 @@
-import CustomStamp from "./CustomStamp";
 import { 
   StampContainer,
   EnterDiv,
@@ -9,14 +8,16 @@ import {
 import plus from '../../assets/icon/plus_btn.svg';
 import CustomCarousel from "./Carousel";
 import sealFrame from '../../assets/icon/seal_basic.svg';
+import { useNavigate } from "react-router";
 
 const MySeal = () => {
+  const navigate = useNavigate();
   return(
     <div style={{ height: '100%', alignItems: 'center', display: 'flex', flexDirection: 'column'}}>
       <div style={{width: 206, height: 206, display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
         <img src={sealFrame} style={{width: 213, height: 142}}/>
       </div>
-      <EnterDiv>씰 만들러 가기</EnterDiv>
+      <EnterDiv onClick={()=>navigate(`/mypage/sealmaking`)}>씰 만들러 가기</EnterDiv>
       <MineStamp>
         <Label>
           <div style={{marginLeft: 20}}>내가 만든 씰</div>

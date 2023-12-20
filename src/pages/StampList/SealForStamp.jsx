@@ -5,9 +5,12 @@ import{
 } from './styled';
 import { useEffect, useState } from "react";
 import StampItem from "../../components/StampList/StampItem";
+import { useRecoilState } from 'recoil';
+import { selectState } from '../../stores/select-state';
 
 const SealForStamp = () => {
   const [stampListData, setStampListData] = useState(null);
+  const [selectItem, setSelectedItem] = useRecoilState(selectState);
 
   useEffect(()=>{
     let stampList = [
@@ -37,12 +40,24 @@ const SealForStamp = () => {
   
   }, []);
 
+  const selectFunc = (item) => {
+    setSelectedItem({
+      id: item?.id,
+      stampImg: item?.stampImg,
+      stampName: item?.stampName,
+      likeCnt: item?.likeCnt,
+      like: item?.like
+    });
+  };
+
   return(
     <StyledStampListContainer>
       <StyledStampListInnerContainer>
         <StyledStampListContent>
           {stampListData?.map((item) => (
-            <StampItem key={item.id} stampData={item} />
+            <div key={item.id} onClick={()=>selectFunc(item)}>
+              <StampItem stampData={item} />
+            </div>
           ))}
         </StyledStampListContent>
       </StyledStampListInnerContainer>

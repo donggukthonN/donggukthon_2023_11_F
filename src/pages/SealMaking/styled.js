@@ -57,7 +57,7 @@ export const SButton2 = styled.button`
   height: 30px;
   border: none;
   background-color: ${props => (props.$isStatus === 'like' ? '#2D9985' : 'white')};
-  color: ${props => (props.$isStatus === 'default' ? 'like' : '#44403C')};
+  color: ${props => (props.$isStatus === 'like' ? 'white' : '#44403C')};
 
   `;
 export const SButton3 = styled.button`

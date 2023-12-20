@@ -6,10 +6,13 @@ import {
 } from './styled';
 import sealGroup from '../../assets/icon/seal_group.svg';
 import SealForU from '../../components/SealMaking/SealForU';
+import { useNavigate } from 'react-router';
 
 const SealMaking = () => {
+  const navigate = useNavigate();
   const handleQuit = () => {
     alert('지금 나가시면 변경사항이 저장되지 않습니다.\n 나가시겠습니까?');
+    navigate(-1);
   };
   return(
     <Root>

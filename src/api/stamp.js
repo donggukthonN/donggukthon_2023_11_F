@@ -82,6 +82,7 @@ export const getStampList = async (accessCookie) => {
 };
 
 // 4-3
+// 4-3
 export const putStampLike = async (stampId, like, accessCookie) => {
   try {
     const { data } = await stampInstance.put(`${APIconstant}/${stampId}/like`, {
