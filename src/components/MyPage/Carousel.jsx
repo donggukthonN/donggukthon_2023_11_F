@@ -41,6 +41,7 @@ const CustomCarousel = () => {
         showStatus={false}
         autoPlay={true}
         infiniteLoop={true}
+        showIndicators={false}
         >
           {Array(10).fill().map((item,index) => (
             <div key={index} style={{display: 'flex', justifyContent: 'center'}}>

@@ -13,7 +13,9 @@ import sealFrame from '../../assets/icon/seal_basic.svg';
 const MySeal = () => {
   return(
     <div style={{ height: '100%', alignItems: 'center', display: 'flex', flexDirection: 'column'}}>
-      <img src={sealFrame} style={{width: 213, height: 142}}/>
+      <div style={{width: 206, height: 206, display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+        <img src={sealFrame} style={{width: 213, height: 142}}/>
+      </div>
       <EnterDiv>씰 만들러 가기</EnterDiv>
       <MineStamp>
         <Label>
