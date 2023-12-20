@@ -7,5 +7,6 @@ export const selectState = atom({
     stampImg: '',
     likeCnt: 0,
     like: false,
+    index: 0,
   }
 });

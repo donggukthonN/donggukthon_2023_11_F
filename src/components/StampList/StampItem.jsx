@@ -19,6 +19,7 @@ const StampItem = ({ stampData }) => {
       stampName: item?.stampName,
       likeCnt: item?.likeCnt,
       like: item?.like,
+      index: localStorage.getItem('key')
     });
   };
   useEffect(() => {

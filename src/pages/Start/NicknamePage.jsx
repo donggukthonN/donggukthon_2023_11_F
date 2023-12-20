@@ -44,7 +44,7 @@ const NicknamePage = () => {
     let data = {
       nickname: name
     };
-    // console.log(name);
+    // console.log(token);
     nameCheck(token, name);
   }
   const nextBtn = () => {

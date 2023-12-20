@@ -26,7 +26,6 @@ export const nameCheck = async (accessCookie, nickname) => {
       // Authorization: `Bearer ${accessCookie}`,
       Authorization: `Bearer ${accessCookie}`,
     }});
-    console.log(data);
     return data;
   }catch(error){
     console.log(error.config);
