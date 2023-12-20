@@ -9,6 +9,7 @@ import {
 } from './styled';
 import { useRecoilState } from "recoil";
 import { stampState } from "../../stores/stamp-state";
+import { useCookies } from 'react-cookie';
 import santaHat from '../../assets/icon/santa_hat.svg';
 import MyStamp from "../../components/MyPage/MyStamp";
 import { useCookies } from 'react-cookie';
