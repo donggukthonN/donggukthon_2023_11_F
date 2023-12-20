@@ -14,6 +14,7 @@ const Row = ({
   canDraggable,
   changedColor,
   colorData,
+  stompClientRef,
 }) => {
   let pixels = [];
 
@@ -27,6 +28,7 @@ const Row = ({
         canDraggable={canDraggable}
         changedColor={changedColor}
         colorData={colorData}
+        stompClientRef={stompClientRef}
       />
     );
   }

@@ -35,17 +35,17 @@ root.render(
         <Routes>
           <Route path="/" element={<StartPage />} />
           <Route path="/signin" element={<NicknamePage />} />
-          <Route path="/mypage" element={<Layout />} >
-            <Route index path="/mypage" element={<MyPage/>} />
-            <Route path="/mypage/sealmaking" element={<SealMaking/>}/>
-            <Route path="/mypage/sealadd" element={<SealAdd/>} />
+          <Route path="/mypage" element={<Layout />}>
+            <Route index path="/mypage" element={<MyPage />} />
+            <Route path="/mypage/sealmaking" element={<SealMaking />} />
+            <Route path="/mypage/sealadd" element={<SealAdd />} />
             <Route path="/mypage/stampList" element={<StampListPage />} />
             <Route path="/mypage/sealList" element={<SealListPage />} />
           </Route>
 
-          <Route path="/sealcomplete" element={<SealComplete/>}/>
-          <Route path="/sealcheck" element={<SealCheck/>} />
-          <Route path="/order" element={<OrderPage/>} />
+          <Route path="/sealcomplete" element={<SealComplete />} />
+          <Route path="/sealcheck" element={<SealCheck />} />
+          <Route path="/order" element={<OrderPage />} />
 
           <Route path="/mySealList" element={<MySealListPage />} />
           {/* <Route path="/sealList" element={<SealListPage />} /> */}
@@ -54,7 +54,7 @@ root.render(
           <Route path="/stampDetail" element={<StampDetailPage />} />
           <Route path="/invitation" element={<InvitationPage />} />
           <Route path="/stampMaking/:id" element={<StampMakingPage />} />
-          <Route path="/loading" element={<LoadingPage />} />
+          <Route path="/loading/:id" element={<LoadingPage />} />
           <Route path="/stampNaming" element={<StampNamingPage />} />
           <Route path="/stampResult/:id" element={<StampResultPage />} />
         </Routes>

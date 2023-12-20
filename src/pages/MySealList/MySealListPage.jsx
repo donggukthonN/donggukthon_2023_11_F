@@ -21,16 +21,17 @@ const MySealListPage = () => {
   const [listData, setListData] = useState(null);
 
   useEffect(() => {
+    const accessCookie = localStorage.getItem("accessCookie");
     if (selectedMenu === 0) {
       // 우표 일때 api 호출
-      let data = getStampMyList("accessCookie값 넣기");
+      let data = getStampMyList(accessCookie);
       if (data.status === "SUCCESS") {
         setListData(data.result.stampList);
       } else {
         alert(data.message);
       }
     } else {
-      let data = getSealMyList("accessCookie값 넣기");
+      let data = getSealMyList(accessCookie);
       if (data.status === "SUCCESS") {
         setListData(data.result.sealList);
       } else {

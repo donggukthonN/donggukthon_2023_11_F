@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -17,7 +18,10 @@ const Pixels = ({
   canDraggable,
   changedColor,
   colorData,
+  stompClientRef,
 }) => {
+  const params = useParams();
+
   let initialColor = colorData[xCoordinate][yCoordinate]; // 나중에 useState로 바꾸기
   const [pixelColor, setPixelColor] = useState(initialColor); // 2차원 배열에서 특정 위치에 해당하는 값을 초기값으로!
 
@@ -39,6 +43,8 @@ const Pixels = ({
 
   const applyColor = () => {
     setPixelColor(selectedColor);
+    const accessCookie = localStorage.getItem("accessCookie");
+    sendHandler(accessCookie);
     console.log("색상 변경 : ", xCoordinate, yCoordinate, selectedColor);
   };
 
@@ -47,8 +53,34 @@ const Pixels = ({
     if (canDraggable) {
       setPixelColor(selectedColor);
       //setCanChangeColor(false);
+      const accessCookie = localStorage.getItem("accessCookie");
+      sendHandler(accessCookie);
       console.log("색상 변경 : ", xCoordinate, yCoordinate, selectedColor);
     }
+  };
+
+  // 소켓 통신
+  const sendHandler = (accessCookie) => {
+    if (!stompClientRef.current || !stompClientRef.current.connected) {
+      console.error(
+        "WebSocket connection is not established. Please connect first."
+      );
+      return;
+    }
+
+    const canvasRequest = {
+      xCoordinate: xCoordinate,
+      yCoordinate: yCoordinate,
+      color: pixelColor,
+    };
+
+    stompClientRef.current.send(
+      `/topic/canvas/${params.id}`,
+      {
+        Authorization: `Bearer ${accessCookie}`,
+      },
+      JSON.stringify(canvasRequest) // 헤더도.. 추가 필요해..
+    );
   };
 
   return (

@@ -19,7 +19,8 @@ const SealListPage = () => {
   const [sealListSearchData, setSealListSearchData] = useState(null);
 
   useEffect(() => {
-    let data = getSealList("accessCookie값 넣기");
+    const accessCookie = localStorage.getItem("accessCookie");
+    let data = getSealList(accessCookie);
 
     if (data.status === "SUCCESS") {
       setSealListData(data.result.sealList);

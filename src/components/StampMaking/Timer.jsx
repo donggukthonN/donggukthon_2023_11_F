@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ProgressBar from "./ProgressBar";
 
-const Timer = ({ leftTime }) => {
+const Timer = ({ leftTime, setTimeout }) => {
   const [timerSeconds, setTimerSeconds] = useState(parseInt(leftTime));
 
   useEffect(() => {
@@ -13,6 +13,7 @@ const Timer = ({ leftTime }) => {
       return () => clearInterval(timer);
     } else {
       console.log("우표 만들기 타이머 종료!");
+      setTimeout(true);
     }
   }, [timerSeconds, leftTime]);
 

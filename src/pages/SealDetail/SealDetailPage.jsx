@@ -24,7 +24,8 @@ const SealDetailPage = ({ sealId }) => {
   const [sealData, setSealData] = useState(null);
 
   useEffect(() => {
-    let data = getSealSingle(sealId, "accessCookie값 넣기");
+    const accessCookie = localStorage.getItem("accessCookie");
+    let data = getSealSingle(sealId, accessCookie);
     if (data.status === "SUCCESS") {
       setSealData(data.result);
     } else {
@@ -45,7 +46,8 @@ const SealDetailPage = ({ sealId }) => {
   const onClickLike = (like) => {
     // console.log("좋아요 api: ", like);
     // 성공하면 새로 고침말고 setSealData로 일부분만 바꾸기!
-    let data = putSealLike(sealId, like, "accessCookie값 넣기");
+    const accessCookie = localStorage.getItem("accessCookie");
+    let data = putSealLike(sealId, like, accessCookie);
     if (data.status === "SUCCESS") {
       setSealData({ ...sealData, like: like });
     } else {

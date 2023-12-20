@@ -31,7 +31,8 @@ const StampNamingPage = () => {
     //formData.append("file", blob, "stamp");
     formData.append("name", name);
 
-    let data = postNewStamp(formData, "accessCookie값 넣기");
+    const accessCookie = localStorage.getItem("accessCookie");
+    let data = postNewStamp(formData, accessCookie);
     if (data.status === "SUCCESS") {
       navigate(`/stampResult/${data.result.stampId}`);
       // 여기서 받은 data.result.stampId를 param으로 보내기

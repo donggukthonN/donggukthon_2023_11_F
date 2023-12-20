@@ -25,7 +25,8 @@ const InvitationPage = () => {
 
   useEffect(() => {
     // 3-1 api
-    let data = getMakeCanvas("accessCookie값 넣기");
+    const accessCookie = localStorage.getItem("accessCookie");
+    let data = getMakeCanvas(accessCookie);
     if (data.status === "SUCCESS") {
       setCanvasId(data.result.canvasId);
     } else {
