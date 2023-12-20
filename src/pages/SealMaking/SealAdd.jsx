@@ -1,29 +1,51 @@
-import { 
+import {
   Root,
   TabBar,
   SButton1,
   SButton2,
   SButton3,
   ListContainer,
-  Submit
+  Submit,
 } from "./styled";
 import { useState } from "react";
 import SealForStamp from "../StampList/SealForStamp";
+import { useNavigate } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import { selectState } from "../../stores/select-state";
 
 // default - like - mine
 const SealAdd = () => {
-  const [isStatus, setIsStatus] = useState('default');
-  return(
+  const [selectItem, setSelectItem] = useRecoilState(selectState);
+  const [isStatus, setIsStatus] = useState("default");
+  const navigate = useNavigate();
+  const navigating = () => {
+    if (!selectItem) {
+      alert("아무것도 선택되지 않았습니다.");
+    } else {
+      navigate(`/mypage/sealmaking`);
+    }
+  };
+  return (
     <Root>
-      <div style={{color: '#992D2D', marginTop: 24, fontSize: 27}}>우표 보관함</div>
+      <div style={{ color: "#992D2D", marginTop: 24, fontSize: 27 }}>
+        우표 보관함
+      </div>
       <TabBar>
-        <SButton1 style={{borderRadius: '8px 0 0 8px'}} onClick={()=>setIsStatus('default')} $isStatus={isStatus}>
+        <SButton1
+          style={{ borderRadius: "8px 0 0 8px" }}
+          onClick={() => setIsStatus("default")}
+          $isStatus={isStatus}
+        >
           전체
         </SButton1>
-        <SButton2 onClick={()=>setIsStatus('like')} $isStatus={isStatus}>
+        <SButton2 onClick={() => setIsStatus("like")} $isStatus={isStatus}>
           좋아요
         </SButton2>
-        <SButton3 style={{borderRadius: '0 8px 8px 0'}} onClick={()=>setIsStatus('mine')} $isStatus={isStatus}>
+        <SButton3
+          style={{ borderRadius: "0 8px 8px 0" }}
+          onClick={() => setIsStatus("mine")}
+          $isStatus={isStatus}
+        >
           MY
         </SButton3>
       </TabBar>
@@ -32,7 +54,7 @@ const SealAdd = () => {
         {/* 스탬프 데이터  default - like - my 별로 전송 */}
         <SealForStamp />
       </ListContainer>
-      <Submit>선택완료</Submit>
+      <Submit onClick={navigating}>선택완료</Submit>
     </Root>
   );
 };
