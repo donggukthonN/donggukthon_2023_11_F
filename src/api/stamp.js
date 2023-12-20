@@ -1,9 +1,11 @@
 import { stampInstance } from "./instance";
 
+const APIconstant = '/api/v1/stamp';
+
 // 2-2
 export const getStampSingle = async (stampId, accessCookie) => {
   try {
-    const { data } = await stampInstance.get(`/${stampId}/details`, {
+    const { data } = await stampInstance.get(`${APIconstant}/${stampId}/details`, {
       headers: {
         Authorization: `Bearer ${accessCookie}`,
       },
@@ -17,7 +19,7 @@ export const getStampSingle = async (stampId, accessCookie) => {
 // 2-3
 export const getStampMyList = async (accessCookie) => {
   try {
-    const { data } = await stampInstance.get(`/stamp-list`, {
+    const { data } = await stampInstance.get(`${APIconstant}/stamp-list`, {
       headers: {
         Authorization: `Bearer ${accessCookie}`,
       },
@@ -31,7 +33,7 @@ export const getStampMyList = async (accessCookie) => {
 // 3-5
 export const postNewStamp = async (formData, accessCookie) => {
   try {
-    const { data } = await stampInstance.post(`/new-stamp`, {
+    const { data } = await stampInstance.post(`${APIconstant}/new-stamp`, {
       headers: {
         Authorization: `Bearer ${accessCookie}`,
       },
@@ -46,7 +48,7 @@ export const postNewStamp = async (formData, accessCookie) => {
 // 3-6
 export const getStampInfo = async (stampId, accessCookie) => {
   try {
-    const { data } = await stampInstance.get(`/${stampId}/stamp-info`, {
+    const { data } = await stampInstance.get(`${APIconstant}/${stampId}/stamp-info`, {
       headers: {
         Authorization: `Bearer ${accessCookie}`,
       },
@@ -60,7 +62,7 @@ export const getStampInfo = async (stampId, accessCookie) => {
 // 4-1
 export const getStampList = async (accessCookie) => {
   try {
-    const { data } = await stampInstance.get(`/all-list`, {
+    const { data } = await stampInstance.get(`${APIconstant}/all-list`, {
       headers: {
         Authorization: `Bearer ${accessCookie}`,
       },
@@ -74,7 +76,7 @@ export const getStampList = async (accessCookie) => {
 // 4-3
 export const putStampLike = async (stampId, like, accessCookie) => {
   try {
-    const { data } = await stampInstance.put(`/${stampId}/like`, {
+    const { data } = await stampInstance.put(`${APIconstant}/${stampId}/like`, {
       headers: {
         Authorization: `Bearer ${accessCookie}`,
       },

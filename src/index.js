@@ -47,7 +47,8 @@ root.render(
           <Route path="/sealcheck" element={<SealCheck />} />
           <Route path="/order" element={<OrderPage />} />
 
-          <Route path="/mySealList" element={<MySealListPage />} />
+{/* 내가 만든 보관함 */}
+          <Route path="/mySealList" element={<MySealListPage />} /> 
           {/* <Route path="/sealList" element={<SealListPage />} /> */}
           <Route path="/sealDetail/:id" element={<SealDetailPage />} />
           {/* <Route path="/stampList" element={<StampListPage />} /> */}
