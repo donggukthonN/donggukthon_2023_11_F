@@ -1,9 +1,11 @@
 import { sealInstance } from "./instance";
 
+const APIconstant = `/api/v1/seal`;
+
 // 2-4
 export const getSealSingle = async (sealId, accessCookie) => {
   try {
-    const { data } = await sealInstance.get(`/${sealId}/details`, {
+    const { data } = await sealInstance.get(`${APIconstant}/${sealId}/details`, {
       headers: {
         Authorization: `Bearer ${accessCookie}`,
       },
@@ -17,7 +19,7 @@ export const getSealSingle = async (sealId, accessCookie) => {
 //2-5
 export const getSealMyList = async (accessCookie) => {
   try {
-    const { data } = await sealInstance.get(`/seal-list`, {
+    const { data } = await sealInstance.get(`${APIconstant}/seal-list`, {
       headers: {
         Authorization: `Bearer ${accessCookie}`,
       },
@@ -31,7 +33,7 @@ export const getSealMyList = async (accessCookie) => {
 // 5
 export const getSealList = async (accessCookie) => {
   try {
-    const { data } = await sealInstance.get(`/all-list`, {
+    const { data } = await sealInstance.get(`${APIconstant}/all-list`, {
       headers: {
         Authorization: `Bearer ${accessCookie}`,
       },
@@ -45,7 +47,7 @@ export const getSealList = async (accessCookie) => {
 // 5-1
 export const putSealLike = async (sealId, like, accessCookie) => {
   try {
-    const { data } = await sealInstance.put(`/${sealId}/like`, {
+    const { data } = await sealInstance.put(`${APIconstant}/${sealId}/like`, {
       headers: {
         Authorization: `Bearer ${accessCookie}`,
       },

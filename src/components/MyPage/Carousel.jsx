@@ -19,12 +19,6 @@ const CustomCarousel = () => {
     console.log(images);
     setComponents(images);
   };
-  // const renderSlides = components.map((item, index) => (
-  //   <div key={index}>
-  //     {item}
-  //   </div>
-  // ));
-
   return(
     <CarouselContainer>
       <Carousel
@@ -49,7 +43,6 @@ const CustomCarousel = () => {
             </div>
           ))}
         </Carousel>
-        {/* <CustomStamp/> */}
     </CarouselContainer>
   );
 };

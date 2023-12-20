@@ -2,7 +2,9 @@
 
 import { loginInstance } from "./instance";
 
+const APIconstant = `/api/login`;
+
 export const fetchUser = async() => {
-  const {data} = await loginInstance.get(``); //엔드포인트
+  const {data} = await loginInstance.get(`${APIconstant}`); //엔드포인트
   return data;
 }
