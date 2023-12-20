@@ -32,11 +32,12 @@ const StampMakingPage = () => {
     if (ready) {
       setLeftTime(100); // 테스트용
       console.log("api 호출하기 + 소켓 연결");
-      let data = getMakeStamp(params.id, "accessCookie값 넣기");
+      const accessCookie = localStorage.getItem("accessCookie");
+      let data = getMakeStamp(params.id, accessCookie);
       if (data.status === "SUCCESS") {
         setLeftTime(data.result.leftTime);
         setColorData(data.result.color);
-        connectToServer(); // 소켓 연결
+        connectToServer(accessCookie); // 소켓 연결
       } else if (data.status === "FAILED") {
         alert(data.message);
       } else if (data.status === "NONE") {
@@ -60,7 +61,7 @@ const StampMakingPage = () => {
       return;
     }
     // 토큰 헤더에 어케 넘겨..?
-    const fullUrl = `${import.meta.env.VITE_APP_SERVER_HOST}/ws-connection`;
+    const fullUrl = `${import.meta.env.VITE_APP_SERVER_HOST}/ws-canvas`;
     const socket = new SockJS(fullUrl);
     stompClientRef.current = Stomp.over(socket);
 

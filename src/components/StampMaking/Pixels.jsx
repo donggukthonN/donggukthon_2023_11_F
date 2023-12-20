@@ -43,6 +43,8 @@ const Pixels = ({
 
   const applyColor = () => {
     setPixelColor(selectedColor);
+    const accessCookie = localStorage.getItem("accessCookie");
+    sendHandler(accessCookie);
     console.log("색상 변경 : ", xCoordinate, yCoordinate, selectedColor);
   };
 
@@ -51,6 +53,8 @@ const Pixels = ({
     if (canDraggable) {
       setPixelColor(selectedColor);
       //setCanChangeColor(false);
+      const accessCookie = localStorage.getItem("accessCookie");
+      sendHandler(accessCookie);
       console.log("색상 변경 : ", xCoordinate, yCoordinate, selectedColor);
     }
   };

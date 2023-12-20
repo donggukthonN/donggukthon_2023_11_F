@@ -20,7 +20,8 @@ const StampListPage = () => {
   const [stampListSearchData, setStampListSearchData] = useState(null);
 
   useEffect(() => {
-    let data = getStampList("accessCookie값 넣기");
+    const accessCookie = localStorage.getItem("accessCookie");
+    let data = getStampList(accessCookie);
 
     if (data.status === "SUCCESS") {
       setStampListData(data.result.stampList);
@@ -28,31 +29,31 @@ const StampListPage = () => {
     } else {
       alert(data.message);
     }
-  //   let stampList = [
-  //     {
-  //       id: 1,
-  //       stampImg: "String", //url
-  //       stampName: "우표 이름1",
-  //       likeCnt: "2",
-  //       like: true,
-  //     },
-  //     {
-  //       id: 2,
-  //       stampImg: "String", //url
-  //       stampName: "우표 이름2",
-  //       likeCnt: "3",
-  //       like: false,
-  //     },
-  //     {
-  //       id: 3,
-  //       stampImg: "String", //url
-  //       stampName: "우표 이름3",
-  //       likeCnt: "0",
-  //       like: false,
-  //     },
-  //   ];
-  //   setStampListData(stampList);
-  //   setStampListSearchData(stampList);
+    //   let stampList = [
+    //     {
+    //       id: 1,
+    //       stampImg: "String", //url
+    //       stampName: "우표 이름1",
+    //       likeCnt: "2",
+    //       like: true,
+    //     },
+    //     {
+    //       id: 2,
+    //       stampImg: "String", //url
+    //       stampName: "우표 이름2",
+    //       likeCnt: "3",
+    //       like: false,
+    //     },
+    //     {
+    //       id: 3,
+    //       stampImg: "String", //url
+    //       stampName: "우표 이름3",
+    //       likeCnt: "0",
+    //       like: false,
+    //     },
+    //   ];
+    //   setStampListData(stampList);
+    //   setStampListSearchData(stampList);
   }, []);
 
   const onChangeSearch = (e) => {
@@ -109,7 +110,6 @@ const StampListPage = () => {
         </StyledStampListInnerContainer>
       </StyledStampListContainer>
     </Root>
-    
   );
 };
 

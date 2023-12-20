@@ -17,7 +17,8 @@ const StampResultPage = () => {
   const [stampData, setStampData] = useState(null);
 
   useEffect(() => {
-    let data = getStampInfo(params.id, "accessCookie값 넣기");
+    const accessCookie = localStorage.getItem("accessCookie");
+    let data = getStampInfo(params.id, accessCookie);
     if (data.status === "SUCCESS") {
       setStampData(data.result);
     } else {

@@ -24,7 +24,8 @@ const StampDetailPage = ({ stampId }) => {
   const [stampData, setStampData] = useState(null);
 
   useEffect(() => {
-    let data = getStampSingle(stampId, "accessCookie값 넣기");
+    const accessCookie = localStorage.getItem("accessCookie");
+    let data = getStampSingle(stampId, accessCookie);
     if (data.status === "SUCCESS") {
       setStampData(data.result);
     } else {
@@ -45,7 +46,8 @@ const StampDetailPage = ({ stampId }) => {
   const onClickLike = (like) => {
     //console.log("좋아요 api: ", like);
     // 성공하면 새로 고침말고 setStampData로 일부분만 바꾸기!
-    let data = putStampLike(stampId, like, "accessCookie값 넣기");
+    const accessCookie = localStorage.getItem("accessCookie");
+    let data = putStampLike(stampId, like, accessCookie);
     if (data.status === "SUCCESS") {
       setStampData({ ...stampData, like: like });
     } else {

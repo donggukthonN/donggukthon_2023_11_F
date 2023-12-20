@@ -59,13 +59,13 @@ const DrawingPanel = ({
     } catch (error) {
       console.error("Error converting div to image:", error);
     }
-
-    let data = getCheckRoomMaker(params.id, "accessCookie값 넣기");
+    const accessCookie = localStorage.getItem("accessCookie");
+    let data = getCheckRoomMaker(params.id, accessCookie);
     if (data.status === "SUCCESS") {
       if (data.result.roomMaker) {
         navigate(`/stampNaming`); // 팀장일 때
       } else {
-        navigate(`/loading`);
+        navigate(`/loading/${params.id}`);
       }
     } else if (data.status === "FAILED") {
       alert(data.message);
